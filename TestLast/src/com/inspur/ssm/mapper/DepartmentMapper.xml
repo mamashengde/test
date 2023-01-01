@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.inspur.ssm.mapper.DepartmentMapper" >
+  <resultMap id="BaseResultMap" type="com.inspur.ssm.pojo.Department" >
+    <id column="DEPARTID" property="departid" jdbcType="VARCHAR" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="USERID" property="userid" jdbcType="VARCHAR" />
+    <result column="CREATEDATE" property="createdate" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    DEPARTID, NAME, USERID, CREATEDATE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from DEPARTMENT
+    where DEPARTID = #{departid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from DEPARTMENT
+    where DEPARTID = #{departid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.inspur.ssm.pojo.Department" >
+    insert into DEPARTMENT (DEPARTID, NAME, USERID, 
+      CREATEDATE)
+    values (#{departid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, 
+      #{createdate,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.inspur.ssm.pojo.Department" >
+    insert into DEPARTMENT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="departid != null" >
+        DEPARTID,
+      </if>
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="userid != null" >
+        USERID,
+      </if>
+      <if test="createdate != null" >
+        CREATEDATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="departid != null" >
+        #{departid,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null" >
+        #{createdate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.inspur.ssm.pojo.Department" >
+    update DEPARTMENT
+    <set >
+      <if test="name != null" >
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        USERID = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null" >
+        CREATEDATE = #{createdate,jdbcType=DATE},
+      </if>
+    </set>
+    where DEPARTID = #{departid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.inspur.ssm.pojo.Department" >
+    update DEPARTMENT
+    set NAME = #{name,jdbcType=VARCHAR},
+      USERID = #{userid,jdbcType=VARCHAR},
+      CREATEDATE = #{createdate,jdbcType=DATE}
+    where DEPARTID = #{departid,jdbcType=VARCHAR}
+  </update>
+</mapper>

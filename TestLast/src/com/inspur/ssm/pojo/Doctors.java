@@ -3,10 +3,10 @@ package com.inspur.ssm.pojo;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class Userssm {
-    private String id;
+public class Doctors {
+    private String docid;
 
-    private String username;
+    private String name;
 
     private String password;
 
@@ -14,30 +14,36 @@ public class Userssm {
 
     private String realname;
 
-    private String tel;
+    private String departid;
 
-    private BigDecimal age;
+    private String positional;
 
     private String sex;
 
+    private BigDecimal age;
+
+    private String tel;
+
     private String address;
+
+    private Integer rocharge;
 
     private Date createdate;
 
-    public String getId() {
-        return id;
+    public String getDocid() {
+        return docid;
     }
 
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+    public void setDocid(String docid) {
+        this.docid = docid == null ? null : docid.trim();
     }
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
     }
 
     public String getPassword() {
@@ -64,20 +70,20 @@ public class Userssm {
         this.realname = realname == null ? null : realname.trim();
     }
 
-    public String getTel() {
-        return tel;
+    public String getDepartid() {
+        return departid;
     }
 
-    public void setTel(String tel) {
-        this.tel = tel == null ? null : tel.trim();
+    public void setDepartid(String departid) {
+        this.departid = departid == null ? null : departid.trim();
     }
 
-    public BigDecimal getAge() {
-        return age;
+    public String getPositional() {
+        return positional;
     }
 
-    public void setAge(BigDecimal age) {
-        this.age = age;
+    public void setPositional(String positional) {
+        this.positional = positional == null ? null : positional.trim();
     }
 
     public String getSex() {
@@ -88,12 +94,36 @@ public class Userssm {
         this.sex = sex == null ? null : sex.trim();
     }
 
+    public BigDecimal getAge() {
+        return age;
+    }
+
+    public void setAge(BigDecimal age) {
+        this.age = age;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel == null ? null : tel.trim();
+    }
+
     public String getAddress() {
         return address;
     }
 
     public void setAddress(String address) {
         this.address = address == null ? null : address.trim();
+    }
+
+    public Integer getRocharge() {
+        return rocharge;
+    }
+
+    public void setRocharge(Integer rocharge) {
+        this.rocharge = rocharge;
     }
 
     public Date getCreatedate() {

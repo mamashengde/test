@@ -6,11 +6,12 @@ import org.springframework.stereotype.Service;
 import com.inspur.ssm.mapper.UserssmMapper;
 import com.inspur.ssm.pojo.Userssm;
 import com.inspur.ssm.service.LoginService;
-
 @Service("loginService")
-public class LoginServiceImpl implements LoginService {
+public class LoginServiceImpl implements LoginService{
+	
 	@Autowired
 	private UserssmMapper userssmMapper;
+
 	@Override
 	public Userssm findUser(Userssm userssmQuery) throws Exception {
 		Userssm userssm = userssmMapper.findUser(userssmQuery);
@@ -21,4 +22,11 @@ public class LoginServiceImpl implements LoginService {
 		}
 	}
 
+	@Override
+	public void updateByPrimaryKey(Userssm user) {
+		userssmMapper.updateByPrimaryKey(user);
+	}
+	
+	
+	
 }
