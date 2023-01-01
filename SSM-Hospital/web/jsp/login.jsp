@@ -28,7 +28,7 @@
    	  <form action="<%=path %>/login.action" method="post" name="ThisForm">
 	   	  <div class="content">
 	   	 	
-	        <div class="field"><label>账　户：</label><input class="username" name="username"  type="text" /></div>
+	        <div class="field"><label>账　号：</label><input class="username" name="username"  type="text" /></div>
 			<div class="field"><label>密　码：</label><input class="password" name="password"  type="password" /><br /></div>
 	        <div class="field"><span style="color: red">${message}</span></div>
 <!-- 	        <div class="yzm-box"> -->
