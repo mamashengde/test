@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.inspur.ssm.mapper.PaymentdetailsMapper" >
+  <resultMap id="BaseResultMap" type="com.inspur.ssm.pojo.Paymentdetails" >
+    <result column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="MEMBERID" property="memberid" jdbcType="VARCHAR" />
+    <result column="RECHARGEAMOUNT" property="rechargeamount" jdbcType="DECIMAL" />
+    <result column="BALANCE" property="balance" jdbcType="DECIMAL" />
+    <result column="RECHARGEMETHOD" property="rechargemethod" jdbcType="VARCHAR" />
+    <result column="USERID" property="userid" jdbcType="VARCHAR" />
+    <result column="CREATEDATE" property="createdate" jdbcType="DATE" />
+  </resultMap>
+  <insert id="insert" parameterType="com.inspur.ssm.pojo.Paymentdetails" >
+    insert into PAYMENTDETAILS (ID, MEMBERID, RECHARGEAMOUNT, 
+      BALANCE, RECHARGEMETHOD, USERID, 
+      CREATEDATE)
+    values (#{id,jdbcType=VARCHAR}, #{memberid,jdbcType=VARCHAR}, #{rechargeamount,jdbcType=DECIMAL}, 
+      #{balance,jdbcType=DECIMAL}, #{rechargemethod,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, 
+      #{createdate,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.inspur.ssm.pojo.Paymentdetails" >
+    insert into PAYMENTDETAILS
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="memberid != null" >
+        MEMBERID,
+      </if>
+      <if test="rechargeamount != null" >
+        RECHARGEAMOUNT,
+      </if>
+      <if test="balance != null" >
+        BALANCE,
+      </if>
+      <if test="rechargemethod != null" >
+        RECHARGEMETHOD,
+      </if>
+      <if test="userid != null" >
+        USERID,
+      </if>
+      <if test="createdate != null" >
+        CREATEDATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="memberid != null" >
+        #{memberid,jdbcType=VARCHAR},
+      </if>
+      <if test="rechargeamount != null" >
+        #{rechargeamount,jdbcType=DECIMAL},
+      </if>
+      <if test="balance != null" >
+        #{balance,jdbcType=DECIMAL},
+      </if>
+      <if test="rechargemethod != null" >
+        #{rechargemethod,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null" >
+        #{createdate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.inspur.ssm.mapper.RegisterorderMapper" >
+  <resultMap id="BaseResultMap" type="com.inspur.ssm.pojo.Registerorder" >
+    <id column="ROID" property="roid" jdbcType="VARCHAR" />
+    <result column="MEMBERID" property="memberid" jdbcType="VARCHAR" />
+    <result column="DEPARTID" property="departid" jdbcType="VARCHAR" />
+    <result column="DOCID" property="docid" jdbcType="VARCHAR" />
+    <result column="ROTIME" property="rotime" jdbcType="DATE" />
+    <result column="ROCHARGE" property="rocharge" jdbcType="DECIMAL" />
+    <result column="STATUS" property="status" jdbcType="VARCHAR" />
+    <result column="OPTIME" property="optime" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ROID, MEMBERID, DEPARTID, DOCID, ROTIME, ROCHARGE, STATUS, OPTIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from REGISTERORDER
+    where ROID = #{roid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from REGISTERORDER
+    where ROID = #{roid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.inspur.ssm.pojo.Registerorder" >
+    insert into REGISTERORDER (ROID, MEMBERID, DEPARTID, 
+      DOCID, ROTIME, ROCHARGE, 
+      STATUS, OPTIME)
+    values (#{roid,jdbcType=VARCHAR}, #{memberid,jdbcType=VARCHAR}, #{departid,jdbcType=VARCHAR}, 
+      #{docid,jdbcType=VARCHAR}, #{rotime,jdbcType=DATE}, #{rocharge,jdbcType=DECIMAL}, 
+      #{status,jdbcType=VARCHAR}, #{optime,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.inspur.ssm.pojo.Registerorder" >
+    insert into REGISTERORDER
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="roid != null" >
+        ROID,
+      </if>
+      <if test="memberid != null" >
+        MEMBERID,
+      </if>
+      <if test="departid != null" >
+        DEPARTID,
+      </if>
+      <if test="docid != null" >
+        DOCID,
+      </if>
+      <if test="rotime != null" >
+        ROTIME,
+      </if>
+      <if test="rocharge != null" >
+        ROCHARGE,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="optime != null" >
+        OPTIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="roid != null" >
+        #{roid,jdbcType=VARCHAR},
+      </if>
+      <if test="memberid != null" >
+        #{memberid,jdbcType=VARCHAR},
+      </if>
+      <if test="departid != null" >
+        #{departid,jdbcType=VARCHAR},
+      </if>
+      <if test="docid != null" >
+        #{docid,jdbcType=VARCHAR},
+      </if>
+      <if test="rotime != null" >
+        #{rotime,jdbcType=DATE},
+      </if>
+      <if test="rocharge != null" >
+        #{rocharge,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="optime != null" >
+        #{optime,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.inspur.ssm.pojo.Registerorder" >
+    update REGISTERORDER
+    <set >
+      <if test="memberid != null" >
+        MEMBERID = #{memberid,jdbcType=VARCHAR},
+      </if>
+      <if test="departid != null" >
+        DEPARTID = #{departid,jdbcType=VARCHAR},
+      </if>
+      <if test="docid != null" >
+        DOCID = #{docid,jdbcType=VARCHAR},
+      </if>
+      <if test="rotime != null" >
+        ROTIME = #{rotime,jdbcType=DATE},
+      </if>
+      <if test="rocharge != null" >
+        ROCHARGE = #{rocharge,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="optime != null" >
+        OPTIME = #{optime,jdbcType=DATE},
+      </if>
+    </set>
+    where ROID = #{roid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.inspur.ssm.pojo.Registerorder" >
+    update REGISTERORDER
+    set MEMBERID = #{memberid,jdbcType=VARCHAR},
+      DEPARTID = #{departid,jdbcType=VARCHAR},
+      DOCID = #{docid,jdbcType=VARCHAR},
+      ROTIME = #{rotime,jdbcType=DATE},
+      ROCHARGE = #{rocharge,jdbcType=DECIMAL},
+      STATUS = #{status,jdbcType=VARCHAR},
+      OPTIME = #{optime,jdbcType=DATE}
+    where ROID = #{roid,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.inspur.ssm.mapper.MembersMapper" >
+  <resultMap id="BaseResultMap" type="com.inspur.ssm.pojo.Members" >
+    <id column="MEMBERID" property="memberid" jdbcType="VARCHAR" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="PASSWORD" property="password" jdbcType="VARCHAR" />
+    <result column="ROLE" property="role" jdbcType="VARCHAR" />
+    <result column="REALNAME" property="realname" jdbcType="VARCHAR" />
+    <result column="CREDIT" property="credit" jdbcType="VARCHAR" />
+    <result column="SEX" property="sex" jdbcType="VARCHAR" />
+    <result column="AGE" property="age" jdbcType="DECIMAL" />
+    <result column="TEL" property="tel" jdbcType="VARCHAR" />
+    <result column="BALANCE" property="balance" jdbcType="DECIMAL" />
+    <result column="ANAPHYLAXIS" property="anaphylaxis" jdbcType="VARCHAR" />
+    <result column="CREATEDATE" property="createdate" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    MEMBERID, NAME, PASSWORD, ROLE, REALNAME, CREDIT, SEX, AGE, TEL, BALANCE, ANAPHYLAXIS, 
+    CREATEDATE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from MEMBERS
+    where MEMBERID = #{memberid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from MEMBERS
+    where MEMBERID = #{memberid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.inspur.ssm.pojo.Members" >
+    insert into MEMBERS (MEMBERID, NAME, PASSWORD, 
+      ROLE, REALNAME, CREDIT, 
+      SEX, AGE, TEL, BALANCE, 
+      ANAPHYLAXIS, CREATEDATE)
+    values (#{memberid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{role,jdbcType=VARCHAR}, #{realname,jdbcType=VARCHAR}, #{credit,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{age,jdbcType=DECIMAL}, #{tel,jdbcType=VARCHAR}, #{balance,jdbcType=DECIMAL}, 
+      #{anaphylaxis,jdbcType=VARCHAR}, #{createdate,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.inspur.ssm.pojo.Members" >
+    insert into MEMBERS
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="memberid != null" >
+        MEMBERID,
+      </if>
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="password != null" >
+        PASSWORD,
+      </if>
+      <if test="role != null" >
+        ROLE,
+      </if>
+      <if test="realname != null" >
+        REALNAME,
+      </if>
+      <if test="credit != null" >
+        CREDIT,
+      </if>
+      <if test="sex != null" >
+        SEX,
+      </if>
+      <if test="age != null" >
+        AGE,
+      </if>
+      <if test="tel != null" >
+        TEL,
+      </if>
+      <if test="balance != null" >
+        BALANCE,
+      </if>
+      <if test="anaphylaxis != null" >
+        ANAPHYLAXIS,
+      </if>
+      <if test="createdate != null" >
+        CREATEDATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="memberid != null" >
+        #{memberid,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="role != null" >
+        #{role,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null" >
+        #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="credit != null" >
+        #{credit,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        #{age,jdbcType=DECIMAL},
+      </if>
+      <if test="tel != null" >
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="balance != null" >
+        #{balance,jdbcType=DECIMAL},
+      </if>
+      <if test="anaphylaxis != null" >
+        #{anaphylaxis,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null" >
+        #{createdate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.inspur.ssm.pojo.Members" >
+    update MEMBERS
+    <set >
+      <if test="name != null" >
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        PASSWORD = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="role != null" >
+        ROLE = #{role,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null" >
+        REALNAME = #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="credit != null" >
+        CREDIT = #{credit,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        SEX = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        AGE = #{age,jdbcType=DECIMAL},
+      </if>
+      <if test="tel != null" >
+        TEL = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="balance != null" >
+        BALANCE = #{balance,jdbcType=DECIMAL},
+      </if>
+      <if test="anaphylaxis != null" >
+        ANAPHYLAXIS = #{anaphylaxis,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null" >
+        CREATEDATE = #{createdate,jdbcType=DATE},
+      </if>
+    </set>
+    where MEMBERID = #{memberid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.inspur.ssm.pojo.Members" >
+    update MEMBERS
+    set NAME = #{name,jdbcType=VARCHAR},
+      PASSWORD = #{password,jdbcType=VARCHAR},
+      ROLE = #{role,jdbcType=VARCHAR},
+      REALNAME = #{realname,jdbcType=VARCHAR},
+      CREDIT = #{credit,jdbcType=VARCHAR},
+      SEX = #{sex,jdbcType=VARCHAR},
+      AGE = #{age,jdbcType=DECIMAL},
+      TEL = #{tel,jdbcType=VARCHAR},
+      BALANCE = #{balance,jdbcType=DECIMAL},
+      ANAPHYLAXIS = #{anaphylaxis,jdbcType=VARCHAR},
+      CREATEDATE = #{createdate,jdbcType=DATE}
+    where MEMBERID = #{memberid,jdbcType=VARCHAR}
+  </update>
+</mapper>

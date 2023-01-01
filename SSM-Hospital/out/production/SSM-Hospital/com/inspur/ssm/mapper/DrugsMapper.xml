@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.inspur.ssm.mapper.DrugsMapper" >
+  <resultMap id="BaseResultMap" type="com.inspur.ssm.pojo.Drugs" >
+    <id column="DRUGSID" property="drugsid" jdbcType="VARCHAR" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="PRICE" property="price" jdbcType="DECIMAL" />
+    <result column="PURCHASEPRICE" property="purchaseprice" jdbcType="DECIMAL" />
+    <result column="NUM" property="num" jdbcType="DECIMAL" />
+    <result column="INTRODUCEDATE" property="introducedate" jdbcType="DATE" />
+    <result column="PRODUCTDATE" property="productdate" jdbcType="DATE" />
+    <result column="QUALITYPERIOD" property="qualityperiod" jdbcType="DATE" />
+    <result column="SUPPLYUNIT" property="supplyunit" jdbcType="VARCHAR" />
+    <result column="PRODUCTUNIT" property="productunit" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    DRUGSID, NAME, PRICE, PURCHASEPRICE, NUM, INTRODUCEDATE, PRODUCTDATE, QUALITYPERIOD, 
+    SUPPLYUNIT, PRODUCTUNIT
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from DRUGS
+    where DRUGSID = #{drugsid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from DRUGS
+    where DRUGSID = #{drugsid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.inspur.ssm.pojo.Drugs" >
+    insert into DRUGS (DRUGSID, NAME, PRICE, 
+      PURCHASEPRICE, NUM, INTRODUCEDATE, 
+      PRODUCTDATE, QUALITYPERIOD, SUPPLYUNIT, 
+      PRODUCTUNIT)
+    values (#{drugsid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, 
+      #{purchaseprice,jdbcType=DECIMAL}, #{num,jdbcType=DECIMAL}, #{introducedate,jdbcType=DATE}, 
+      #{productdate,jdbcType=DATE}, #{qualityperiod,jdbcType=DATE}, #{supplyunit,jdbcType=VARCHAR}, 
+      #{productunit,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.inspur.ssm.pojo.Drugs" >
+    insert into DRUGS
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="drugsid != null" >
+        DRUGSID,
+      </if>
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="price != null" >
+        PRICE,
+      </if>
+      <if test="purchaseprice != null" >
+        PURCHASEPRICE,
+      </if>
+      <if test="num != null" >
+        NUM,
+      </if>
+      <if test="introducedate != null" >
+        INTRODUCEDATE,
+      </if>
+      <if test="productdate != null" >
+        PRODUCTDATE,
+      </if>
+      <if test="qualityperiod != null" >
+        QUALITYPERIOD,
+      </if>
+      <if test="supplyunit != null" >
+        SUPPLYUNIT,
+      </if>
+      <if test="productunit != null" >
+        PRODUCTUNIT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="drugsid != null" >
+        #{drugsid,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="purchaseprice != null" >
+        #{purchaseprice,jdbcType=DECIMAL},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=DECIMAL},
+      </if>
+      <if test="introducedate != null" >
+        #{introducedate,jdbcType=DATE},
+      </if>
+      <if test="productdate != null" >
+        #{productdate,jdbcType=DATE},
+      </if>
+      <if test="qualityperiod != null" >
+        #{qualityperiod,jdbcType=DATE},
+      </if>
+      <if test="supplyunit != null" >
+        #{supplyunit,jdbcType=VARCHAR},
+      </if>
+      <if test="productunit != null" >
+        #{productunit,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.inspur.ssm.pojo.Drugs" >
+    update DRUGS
+    <set >
+      <if test="name != null" >
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        PRICE = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="purchaseprice != null" >
+        PURCHASEPRICE = #{purchaseprice,jdbcType=DECIMAL},
+      </if>
+      <if test="num != null" >
+        NUM = #{num,jdbcType=DECIMAL},
+      </if>
+      <if test="introducedate != null" >
+        INTRODUCEDATE = #{introducedate,jdbcType=DATE},
+      </if>
+      <if test="productdate != null" >
+        PRODUCTDATE = #{productdate,jdbcType=DATE},
+      </if>
+      <if test="qualityperiod != null" >
+        QUALITYPERIOD = #{qualityperiod,jdbcType=DATE},
+      </if>
+      <if test="supplyunit != null" >
+        SUPPLYUNIT = #{supplyunit,jdbcType=VARCHAR},
+      </if>
+      <if test="productunit != null" >
+        PRODUCTUNIT = #{productunit,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where DRUGSID = #{drugsid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.inspur.ssm.pojo.Drugs" >
+    update DRUGS
+    set NAME = #{name,jdbcType=VARCHAR},
+      PRICE = #{price,jdbcType=DECIMAL},
+      PURCHASEPRICE = #{purchaseprice,jdbcType=DECIMAL},
+      NUM = #{num,jdbcType=DECIMAL},
+      INTRODUCEDATE = #{introducedate,jdbcType=DATE},
+      PRODUCTDATE = #{productdate,jdbcType=DATE},
+      QUALITYPERIOD = #{qualityperiod,jdbcType=DATE},
+      SUPPLYUNIT = #{supplyunit,jdbcType=VARCHAR},
+      PRODUCTUNIT = #{productunit,jdbcType=VARCHAR}
+    where DRUGSID = #{drugsid,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.inspur.ssm.mapper.DoctoradviceMapper" >
+  <resultMap id="BaseResultMap" type="com.inspur.ssm.pojo.Doctoradvice" >
+    <id column="DAID" property="daid" jdbcType="VARCHAR" />
+    <result column="ROID" property="roid" jdbcType="VARCHAR" />
+    <result column="MEMBERID" property="memberid" jdbcType="VARCHAR" />
+    <result column="DOCID" property="docid" jdbcType="VARCHAR" />
+    <result column="RESULTS" property="results" jdbcType="VARCHAR" />
+    <result column="PRESCRIPTION" property="prescription" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="VARCHAR" />
+    <result column="CREATEDATE" property="createdate" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    DAID, ROID, MEMBERID, DOCID, RESULTS, PRESCRIPTION, STATUS, CREATEDATE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from DOCTORADVICE
+    where DAID = #{daid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from DOCTORADVICE
+    where DAID = #{daid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.inspur.ssm.pojo.Doctoradvice" >
+    insert into DOCTORADVICE (DAID, ROID, MEMBERID, 
+      DOCID, RESULTS, PRESCRIPTION, 
+      STATUS, CREATEDATE)
+    values (#{daid,jdbcType=VARCHAR}, #{roid,jdbcType=VARCHAR}, #{memberid,jdbcType=VARCHAR}, 
+      #{docid,jdbcType=VARCHAR}, #{results,jdbcType=VARCHAR}, #{prescription,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{createdate,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.inspur.ssm.pojo.Doctoradvice" >
+    insert into DOCTORADVICE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="daid != null" >
+        DAID,
+      </if>
+      <if test="roid != null" >
+        ROID,
+      </if>
+      <if test="memberid != null" >
+        MEMBERID,
+      </if>
+      <if test="docid != null" >
+        DOCID,
+      </if>
+      <if test="results != null" >
+        RESULTS,
+      </if>
+      <if test="prescription != null" >
+        PRESCRIPTION,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="createdate != null" >
+        CREATEDATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="daid != null" >
+        #{daid,jdbcType=VARCHAR},
+      </if>
+      <if test="roid != null" >
+        #{roid,jdbcType=VARCHAR},
+      </if>
+      <if test="memberid != null" >
+        #{memberid,jdbcType=VARCHAR},
+      </if>
+      <if test="docid != null" >
+        #{docid,jdbcType=VARCHAR},
+      </if>
+      <if test="results != null" >
+        #{results,jdbcType=VARCHAR},
+      </if>
+      <if test="prescription != null" >
+        #{prescription,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null" >
+        #{createdate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.inspur.ssm.pojo.Doctoradvice" >
+    update DOCTORADVICE
+    <set >
+      <if test="roid != null" >
+        ROID = #{roid,jdbcType=VARCHAR},
+      </if>
+      <if test="memberid != null" >
+        MEMBERID = #{memberid,jdbcType=VARCHAR},
+      </if>
+      <if test="docid != null" >
+        DOCID = #{docid,jdbcType=VARCHAR},
+      </if>
+      <if test="results != null" >
+        RESULTS = #{results,jdbcType=VARCHAR},
+      </if>
+      <if test="prescription != null" >
+        PRESCRIPTION = #{prescription,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null" >
+        CREATEDATE = #{createdate,jdbcType=DATE},
+      </if>
+    </set>
+    where DAID = #{daid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.inspur.ssm.pojo.Doctoradvice" >
+    update DOCTORADVICE
+    set ROID = #{roid,jdbcType=VARCHAR},
+      MEMBERID = #{memberid,jdbcType=VARCHAR},
+      DOCID = #{docid,jdbcType=VARCHAR},
+      RESULTS = #{results,jdbcType=VARCHAR},
+      PRESCRIPTION = #{prescription,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      CREATEDATE = #{createdate,jdbcType=DATE}
+    where DAID = #{daid,jdbcType=VARCHAR}
+  </update>
+</mapper>

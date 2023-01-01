@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.inspur.ssm.mapper.DrugsstorrecordMapper" >
+  <resultMap id="BaseResultMap" type="com.inspur.ssm.pojo.Drugsstorrecord" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="DRUGSID" property="drugsid" jdbcType="VARCHAR" />
+    <result column="NUM" property="num" jdbcType="DECIMAL" />
+    <result column="STORAGEDATE" property="storagedate" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, DRUGSID, NUM, STORAGEDATE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from DRUGSSTORRECORD
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from DRUGSSTORRECORD
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.inspur.ssm.pojo.Drugsstorrecord" >
+    insert into DRUGSSTORRECORD (ID, DRUGSID, NUM, 
+      STORAGEDATE)
+    values (#{id,jdbcType=VARCHAR}, #{drugsid,jdbcType=VARCHAR}, #{num,jdbcType=DECIMAL}, 
+      #{storagedate,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.inspur.ssm.pojo.Drugsstorrecord" >
+    insert into DRUGSSTORRECORD
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="drugsid != null" >
+        DRUGSID,
+      </if>
+      <if test="num != null" >
+        NUM,
+      </if>
+      <if test="storagedate != null" >
+        STORAGEDATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="drugsid != null" >
+        #{drugsid,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=DECIMAL},
+      </if>
+      <if test="storagedate != null" >
+        #{storagedate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.inspur.ssm.pojo.Drugsstorrecord" >
+    update DRUGSSTORRECORD
+    <set >
+      <if test="drugsid != null" >
+        DRUGSID = #{drugsid,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null" >
+        NUM = #{num,jdbcType=DECIMAL},
+      </if>
+      <if test="storagedate != null" >
+        STORAGEDATE = #{storagedate,jdbcType=DATE},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.inspur.ssm.pojo.Drugsstorrecord" >
+    update DRUGSSTORRECORD
+    set DRUGSID = #{drugsid,jdbcType=VARCHAR},
+      NUM = #{num,jdbcType=DECIMAL},
+      STORAGEDATE = #{storagedate,jdbcType=DATE}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
