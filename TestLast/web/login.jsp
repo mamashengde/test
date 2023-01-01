@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<form action="<%=path %>/login.action" method="post" name="ThisForm">
 			<table>
 				<tr>
-					<td>账 户：</td>
+					<td>账 号：</td>
 					<td><input class="username" name="username" type="text" /></td>
 				</tr>
 				<tr>
