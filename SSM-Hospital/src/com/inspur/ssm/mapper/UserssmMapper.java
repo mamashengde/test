@@ -21,7 +21,10 @@ public interface UserssmMapper {
 	Userssm findUser(Userssm userssmQuery);
 
 	// .....      
-    public List<Userssm> getUserList(Map<String,Object> params);  
-    //分页总条数  
-    public Long getCounts(Map<String,Object> p);  
+    //public List<Userssm> getUserList(Map<String,Object> params);
+    public List<Userssm> getUserList();
+    //分页总条数
+    public Long getCounts(Map<String,Object> p);
+
+    int addUserssm(Userssm userssm);
 }

@@ -42,7 +42,7 @@
 	</form>
 	</div>
     <div class="pageColumn">
-      <div class="pageButton"><a href="${ctx}/html/adminadd.html"><img src="${ctx}/images/t01.png" title="新增"/></a><span>用户列表</span></div>
+      <div class="pageButton"><a href="${ctx}/jsp/adminadd.jsp"><img src="${ctx}/images/t01.png" title="新增"/></a><span>用户列表</span></div>
       <table>
         <thead>
 	          <th width="">用户ID</th>
@@ -55,23 +55,24 @@
 	          <th width="10%">操作</th>
         </thead>
         <tbody>
-           <c:forEach items="${userList}" var="user">
+           <c:forEach items="${userList}" var="userssm">
 				<tr>
-					<td>${user.id}</td>
-					<td>${user.username}</td>
-					<td>${user.realname}</td>
-					<td>${user.role eq 01 ? "管理员":user.role eq 02 ? "大堂服务员": user.role eq 03 ? "药剂师": "未知"}</td>
-					<td>${user.tel}</td>
-					<td>${user.age}</td>
-					<td>${user.address}</td>
+					<td>${userssm.id}</td>
+					<td>${userssm.username}</td>
+					<td>${userssm.realname}</td>
+					<td>${userssm.role eq 01 ? "管理员":userssm.role eq 02 ? "大堂服务员": userssm.role eq 03 ? "药剂师": "未知"}</td>
+					<td>${userssm.tel}</td>
+					<td>${userssm.age}</td>
+					<td>${userssm.address}</td>
 					<td><a onclick="modify(id)"><img src="${ctx}/images/icon/edit.png" width="16" height="16" /></a>
+						<!--<a href="${pageContext.request.contextPath}/book/toUpdate?id=${book.bookID}">修改</a>-->
 	         			<a onclick="deletes(id)"><img src="${ctx}/images/icon/del.png" width="16" height="16" /></a></td>
 				</tr>
 			</c:forEach>
         </tbody>
       </table>
       <jsp:include page="common/includefoot.jsp">
-		  <jsp:param name="url" value="/user/queryUserList.action" />					
+		  <jsp:param name="url" value="/user/queryUserList.action" />
 	  </jsp:include>
     </div>
   </div><!-- #widget -->

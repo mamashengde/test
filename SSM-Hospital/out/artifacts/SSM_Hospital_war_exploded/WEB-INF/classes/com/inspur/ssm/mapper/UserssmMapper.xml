@@ -37,15 +37,19 @@
 		</where>
   </select> 
   
-  <select id="getUserList"  resultType="java.util.List" resultMap="BaseResultMap" parameterType="java.util.HashMap">  
-     <include refid="com.inspur.ssm.mapper.CommonMapper.pagingTop"></include>	
+
+  <!--  <select id="getUserList"  resultType="java.util.List" resultMap="BaseResultMap" parameterType="java.util.HashMap">
+     <include refid="com.inspur.ssm.mapper.CommonMapper.pagingTop"></include>
 	     select * from USERSSM	t
 	     <where>
 			<include refid="query_user_where"></include>
 		</where>
 	 <include refid="com.inspur.ssm.mapper.CommonMapper.pagingBottom"></include>
+  </select> -->
+
+  <select id="getUserList"  resultType="Userssm">
+    select * from userssm
   </select>
-  
   
    <select id="findUser" resultType="com.inspur.ssm.pojo.Userssm" parameterType="com.inspur.ssm.pojo.Userssm" >
     select t1.id,t1.username,t1.role,t1.realname,t1.password from USERSSM t1 where username = #{username} and password = #{password}
@@ -65,6 +69,7 @@
     delete from USERSSM
     where ID = #{id,jdbcType=VARCHAR}
   </delete>
+
   <insert id="insert" parameterType="com.inspur.ssm.pojo.Userssm" >
     insert into USERSSM (ID, USERNAME, PASSWORD, 
       ROLE, REALNAME, TEL, 
@@ -75,6 +80,20 @@
       #{age,jdbcType=DECIMAL}, #{sex,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
       #{createdate,jdbcType=DATE})
   </insert>
+
+  <!--int addUserssm(Userssm userssm);-->
+  <insert id="addUserssm" parameterType="com.inspur.ssm.pojo.Userssm">
+    insert into USERSSM (ID, USERNAME, PASSWORD,
+    ROLE, REALNAME, TEL,
+    AGE, SEX, ADDRESS,
+    CREATEDATE)
+    values (null, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+    #{role,jdbcType=VARCHAR}, #{realname,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR},
+    #{age,jdbcType=DECIMAL}, #{sex,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR},
+    now())
+  </insert>
+
+
   <insert id="insertSelective" parameterType="com.inspur.ssm.pojo.Userssm" >
     insert into USERSSM
     <trim prefix="(" suffix=")" suffixOverrides="," >

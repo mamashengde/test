@@ -21,8 +21,16 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public List<Userssm> getUserList(Map<String, Object> params) {
+	/*public List<Userssm> getUserList(Map<String, Object> params) {
 		return userssmMapper.getUserList(params);
+	}*/
+	public List<Userssm> getUserList() {
+		return userssmMapper.getUserList();
 	}
-	
+
+	public int addUserssm(Userssm userssm){
+		//return userssmMapper.
+		return userssmMapper.addUserssm(userssm);
+	}
+
 }

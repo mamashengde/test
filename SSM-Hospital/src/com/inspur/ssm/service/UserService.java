@@ -12,6 +12,8 @@ public interface UserService {
 	
 	public Long getCounts(Map<String, Object> params);
 
-	public List<Userssm> getUserList(Map<String, Object> params);
+	//public List<Userssm> getUserList(Map<String, Object> params);
+	public List<Userssm> getUserList();
 
+	public int addUserssm(Userssm userssm);
 }
