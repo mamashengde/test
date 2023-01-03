@@ -16,4 +16,10 @@ public interface UserService {
 	public List<Userssm> getUserList();
 
 	public int addUserssm(Userssm userssm);
+
+	public Userssm getUserById(int id);
+
+	public int updateUserById(Userssm userssm);
+
+	public int deleteUserById(int id);
 }

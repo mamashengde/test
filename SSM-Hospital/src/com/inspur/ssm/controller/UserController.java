@@ -79,6 +79,31 @@ public class UserController extends PageController{
 		return "redirect:/user/queryUserList";
 	}
 
+	//跳转到修改用户页面
+	@RequestMapping("/toUpdateUser")
+	public String updateUserPage(int id,Model model) {
+		Userssm userssm=userService.getUserById(id);
+		model.addAttribute("QUser",userssm);
+		return "updateUser";
+	}
+
+	//修改用户信息
+	@RequestMapping("/updateUser")
+	public String updateUser(Userssm userssm){
+		System.out.println("updateUser====" + userssm);
+		int i = userService.updateUserById(userssm);
+		if (i > 0) {
+			System.out.println("添加成功" + userssm);
+		}
+		return "redirect:/user/queryUserList";
+	}
+
+	@RequestMapping("/deleteUser")
+	public String deleteUserById(int id){
+		int i = userService.deleteUserById(id);
+		return "redirect:/user/queryUserList";
+	}
+
 
 
 }

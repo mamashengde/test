@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.inspur.ssm.pojo.Userssm;
+import org.apache.ibatis.annotations.Param;
 
 public interface UserssmMapper {
     int deleteByPrimaryKey(String id);
@@ -27,4 +28,10 @@ public interface UserssmMapper {
     public Long getCounts(Map<String,Object> p);
 
     int addUserssm(Userssm userssm);
+
+    Userssm getUserById(@Param("id") int id);
+
+    int updateUserById(Userssm userssm);
+
+    int deleteUserById(@Param("id") int id);
 }

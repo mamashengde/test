@@ -33,4 +33,16 @@ public class UserServiceImpl implements UserService{
 		return userssmMapper.addUserssm(userssm);
 	}
 
+	public Userssm getUserById(int id){
+		return userssmMapper.getUserById(id);
+	}
+
+	public int updateUserById(Userssm userssm){
+		return userssmMapper.updateUserById(userssm);
+	}
+
+	public int deleteUserById(int id){
+		return userssmMapper.deleteUserById(id);
+	}
+
 }

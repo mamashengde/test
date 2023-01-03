@@ -9,10 +9,7 @@
 <script type="text/javascript" src="${ctx}/js/select-ui.min.js"></script>
 <script type="text/javascript">
 	function deletes(id){
-	 	window.location.href="adminlist.html";
-	}
-	function modify(id){
-		window.location.href="adminadd.html";
+	 	window.location.href="html/adminlist.html";
 	}
 	function query(){
 		window.location.href="queryUserList.action";
@@ -60,13 +57,12 @@
 					<td>${userssm.id}</td>
 					<td>${userssm.username}</td>
 					<td>${userssm.realname}</td>
-					<td>${userssm.role eq 01 ? "管理员":userssm.role eq 02 ? "大堂服务员": userssm.role eq 03 ? "药剂师": "未知"}</td>
+					<td>${userssm.role eq 01 ? "管理员":userssm.role eq 02 ? "大堂服务员": userssm.role eq 03 ? "药剂师": userssm.role eq 04 ? "医生": userssm.role eq 05 ? "会员":"未知"}</td>
 					<td>${userssm.tel}</td>
 					<td>${userssm.age}</td>
 					<td>${userssm.address}</td>
-					<td><a onclick="modify(id)"><img src="${ctx}/images/icon/edit.png" width="16" height="16" /></a>
-						<!--<a href="${pageContext.request.contextPath}/book/toUpdate?id=${book.bookID}">修改</a>-->
-	         			<a onclick="deletes(id)"><img src="${ctx}/images/icon/del.png" width="16" height="16" /></a></td>
+					<td><a href="${pageContext.request.contextPath}/user/toUpdateUser?id=${userssm.id}"><img src="${ctx}/images/icon/edit.png" width="16" height="16" /></a>
+	         			<a href="${pageContext.request.contextPath}/user/deleteUser?id=${userssm.id}"><img src="${ctx}/images/icon/del.png" width="16" height="16" /></a></td>
 				</tr>
 			</c:forEach>
         </tbody>
