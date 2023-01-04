@@ -133,4 +133,42 @@ public class Doctors {
     public void setCreatedate(Date createdate) {
         this.createdate = createdate;
     }
+
+    public Doctors() {
+    }
+
+    public Doctors(String docid, String name, String password, String role, String realname, String departid, String positional, String sex, BigDecimal age, String tel, String address, Integer rocharge, Date createdate) {
+        this.docid = docid;
+        this.name = name;
+        this.password = password;
+        this.role = role;
+        this.realname = realname;
+        this.departid = departid;
+        this.positional = positional;
+        this.sex = sex;
+        this.age = age;
+        this.tel = tel;
+        this.address = address;
+        this.rocharge = rocharge;
+        this.createdate = createdate;
+    }
+
+    @Override
+    public String toString() {
+        return "Doctors{" +
+                "docid='" + docid + '\'' +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
+                ", realname='" + realname + '\'' +
+                ", departid='" + departid + '\'' +
+                ", positional='" + positional + '\'' +
+                ", sex='" + sex + '\'' +
+                ", age=" + age +
+                ", tel='" + tel + '\'' +
+                ", address='" + address + '\'' +
+                ", rocharge=" + rocharge +
+                ", createdate=" + createdate +
+                '}';
+    }
 }
