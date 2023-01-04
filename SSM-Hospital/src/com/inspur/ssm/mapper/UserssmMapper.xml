@@ -37,24 +37,37 @@
 		</where>
   </select> 
   
-  <select id="getUserList"  resultType="java.util.List" resultMap="BaseResultMap" parameterType="java.util.HashMap">  
-     <include refid="com.inspur.ssm.mapper.CommonMapper.pagingTop"></include>	
+
+  <!--  <select id="getUserList"  resultType="java.util.List" resultMap="BaseResultMap" parameterType="java.util.HashMap">
+     <include refid="com.inspur.ssm.mapper.CommonMapper.pagingTop"></include>
 	     select * from USERSSM	t
 	     <where>
 			<include refid="query_user_where"></include>
 		</where>
 	 <include refid="com.inspur.ssm.mapper.CommonMapper.pagingBottom"></include>
+  </select> -->
+
+  <select id="queryUserssmByIdNameRole" resultType="com.inspur.ssm.pojo.Userssm">
+    select * from USERSSM
+    where 1=1
+    <if test="ID != '' and ID != null">
+      and id = #{ID}
+    </if>
+    <if test="USERNAME != ''  and USERNAME != null">
+      and username like '%${USERNAME}%'
+    </if>
+    <if test="ROLE != '' and ROLE != null">
+      and role = '${ROLE}'
+    </if>
   </select>
   
-  
-   <select id="findUser" resultType="com.inspur.ssm.pojo.Userssm" parameterType="com.inspur.ssm.pojo.Userssm" >
+  <select id="findUser" resultType="com.inspur.ssm.pojo.Userssm" parameterType="com.inspur.ssm.pojo.Userssm" >
     select t1.id,t1.username,t1.role,t1.realname,t1.password from USERSSM t1 where username = #{username} and password = #{password}
 	union
 	select t2.docid,t2.name,t2.role,t2.realname,t2.password from doctors t2 where name = #{username} and password = #{password}
 	union
 	select t3.memberid,t3.name,t3.role,t3.realname,t3.password from members t3 where name = #{username} and password = #{password}
   </select>
-  
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
@@ -188,4 +201,62 @@
       CREATEDATE = #{createdate,jdbcType=DATE}
     where ID = #{id,jdbcType=VARCHAR}
   </update>
+
+  <!--int addUserssm(Userssm userssm);-->
+  <insert id="addUserssm" parameterType="com.inspur.ssm.pojo.Userssm">
+    insert into USERSSM (USERNAME, PASSWORD,
+                         ROLE, REALNAME, TEL,
+                         AGE, SEX, ADDRESS,CREATEDATE)
+    values (#{username}, #{password},
+            #{role}, #{realname}, #{tel},
+            #{age}, #{sex}, #{address},now());
+  </insert>
+
+  <!--public List<Userssm> getUserList();-->
+  <select id="getUserList"  resultType="Userssm">
+    select * from userssm
+  </select>
+
+  <!--int getUserById(int id);-->
+  <select id="getUserById" resultType="com.inspur.ssm.pojo.Userssm">
+    select * from Userssm where id = ${id}
+  </select>
+
+  <!--int updateUserById(Userssm userssm);-->
+  <update id="updateUserById" parameterType="Userssm">
+    update USERSSM
+    <set >
+      <if test="username != null" >
+        USERNAME = #{username},
+      </if>
+      <if test="password != null" >
+        PASSWORD = #{password},
+      </if>
+      <if test="role != null" >
+        ROLE = #{role},
+      </if>
+      <if test="realname != null" >
+        REALNAME = #{realname},
+      </if>
+      <if test="tel != null" >
+        TEL = #{tel},
+      </if>
+      <if test="age != null" >
+        AGE = #{age},
+      </if>
+      <if test="sex != null" >
+        SEX = #{sex},
+      </if>
+      <if test="address != null" >
+        ADDRESS = #{address},
+      </if>
+    </set>
+    where ID = #{id}
+  </update>
+
+  <!--int deleteUserById(@Param("id") int id);-->
+  <delete id="deleteUserById" parameterType="int">
+    delete from userssm where id = #{id}
+  </delete>
+
 </mapper>

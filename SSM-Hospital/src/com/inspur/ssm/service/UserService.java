@@ -12,6 +12,16 @@ public interface UserService {
 	
 	public Long getCounts(Map<String, Object> params);
 
-	public List<Userssm> getUserList(Map<String, Object> params);
+	//public List<Userssm> getUserList(Map<String, Object> params);
+	public List<Userssm> getUserList();
 
+	public int addUserssm(Userssm userssm);
+
+	public Userssm getUserById(int id);
+
+	public int updateUserById(Userssm userssm);
+
+	public int deleteUserById(int id);
+
+	List<Userssm> queryUserssmByIdNameRole(String id,String username,String role);
 }

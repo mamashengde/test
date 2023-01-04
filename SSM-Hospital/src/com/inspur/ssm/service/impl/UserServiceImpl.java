@@ -21,8 +21,33 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public List<Userssm> getUserList(Map<String, Object> params) {
+	/*public List<Userssm> getUserList(Map<String, Object> params) {
 		return userssmMapper.getUserList(params);
+	}*/
+	public List<Userssm> getUserList() {
+		return userssmMapper.getUserList();
 	}
-	
+
+	public int addUserssm(Userssm userssm){
+		//return userssmMapper.
+		return userssmMapper.addUserssm(userssm);
+	}
+
+	public Userssm getUserById(int id){
+		return userssmMapper.getUserById(id);
+	}
+
+	public int updateUserById(Userssm userssm){
+		return userssmMapper.updateUserById(userssm);
+	}
+
+	public int deleteUserById(int id){
+		return userssmMapper.deleteUserById(id);
+	}
+
+    @Override
+    public List<Userssm> queryUserssmByIdNameRole(String id, String username, String role) {
+		return userssmMapper.queryUserssmByIdNameRole(id,username,role);
+    }
+
 }

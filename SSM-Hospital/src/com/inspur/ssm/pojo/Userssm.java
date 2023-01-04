@@ -4,24 +4,25 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class Userssm {
+    //id
     private String id;
-
+    //用户名
     private String username;
-
+    //密码
     private String password;
-
+    //职责
     private String role;
-
+    //真实姓名
     private String realname;
-
+    //电话
     private String tel;
-
+    //年龄
     private BigDecimal age;
-
+    //性别
     private String sex;
-
+    //家庭住址
     private String address;
-
+    //创建日期
     private Date createdate;
 
     public String getId() {

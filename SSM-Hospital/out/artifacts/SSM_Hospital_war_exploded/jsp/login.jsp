@@ -25,18 +25,20 @@
 	<div id="header"> </div>
     <div id="content-wrap">
     	<div class="space"> </div>
-   	  <form action="<%=path %>/login.action" method="post" name="ThisForm">
+   	  <form action="<%=path %>/login.action" method="post" name="ThisForm" >
 	   	  <div class="content">
 	   	 	
 	        <div class="field"><label>账　号：</label><input class="username" name="username"  type="text" /></div>
 			<div class="field"><label>密　码：</label><input class="password" name="password"  type="password" /><br /></div>
-	        <div class="field"><span style="color: red">${message}</span></div>
-<!-- 	        <div class="yzm-box"> -->
-	        						<!-- <label>验证码：</label>
+	        <div class="field"><span style="color: #ff0026">${message}</span></div>
+ 	        <!--
+			  <div class="yzm-box">
+	        						 <label>验证码：</label>
 										<img src="image.do" id="yzmimage" align="middle"
 											onclick="this.src=this.src+'?'" /><label
-											style="color: red" id="yzmerror"></label> -->
-<!-- 	        </div> -->
+											style="color: red" id="yzmerror"></label>
+	        </div>
+			-->
 	        </div>
          <div class="btn"><input type="submit" class="login-btn" value="" /></div>
       </form>
