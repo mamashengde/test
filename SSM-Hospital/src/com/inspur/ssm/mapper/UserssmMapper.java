@@ -34,4 +34,6 @@ public interface UserssmMapper {
     int updateUserById(Userssm userssm);
 
     int deleteUserById(@Param("id") int id);
+
+    List<Userssm> queryUserssmByIdNameRole(@Param("ID") String id,@Param("USERNAME") String username,@Param("ROLE") String role);
 }

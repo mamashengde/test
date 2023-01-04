@@ -1,23 +1,15 @@
 package com.inspur.ssm.controller;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.inspur.ssm.pojo.Userssm;
 import com.inspur.ssm.service.UserService;
-import com.inspur.ssm.util.CommonUtil;
-import com.inspur.ssm.util.Page;
-import com.inspur.ssm.util.StringUtil;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/user")
@@ -100,10 +92,22 @@ public class UserController extends PageController{
 
 	@RequestMapping("/deleteUser")
 	public String deleteUserById(int id){
-		int i = userService.deleteUserById(id);
+		userService.deleteUserById(id);
 		return "redirect:/user/queryUserList";
 	}
 
+	//查询用户
+	@RequestMapping("/queryUserssm")
+	public String queryUserssm(@RequestParam(value = "id",required = false) String id, @RequestParam(value = "username",required = false) String username, @RequestParam(value = "role",required = false) String role, Model model) {
+		List<Userssm> userList = userService.queryUserssmByIdNameRole(id, username, role);
 
+		if (userList == null) {
+			userList = userService.getUserList();
+			model.addAttribute("error", "未查到");
+		}
+
+		model.addAttribute("userList", userList);
+		return "adminList";
+	}
 
 }

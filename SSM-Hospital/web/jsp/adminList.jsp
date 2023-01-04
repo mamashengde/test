@@ -23,15 +23,18 @@
   <div id="widget table-widget">
     <div class="pageTitle">用户管理</div>
     <div class="querybody" >
-    <form name="queryForm" action="${ctx}/user/queryUserList.action" method="post">
+    <form name="queryForm" action="${pageContext.request.contextPath}/user/queryUserssm.action" method="post">
 	    <ul class="seachform" >
 	    <li><label>用户ID</label><input id="id" name="id" type="text" value="${userssm.id}" class="scinput" /></li>
 	    <li><label>用户名称</label><input id="username" name="username" type="text" value="${userssm.username}" class="scinput" /></li>
-        <li><label>用户类型</label>  
-		    <select id="role" name="role" style="width:150px;height:32px;" >
-				<c:forEach items="${roleList}" var="role" >
-					<option value="${role.BM}" <c:if test="${userssm.role eq role.BM}">selected</c:if>>${role.MC}</option>
-				</c:forEach>
+        <li><label>用户类型</label>
+			<select id="role" name="role">
+				<option value="">-请选择-</option>
+				<option value="01">管理员</option>
+				<option value="02">服务台员工</option>
+				<option value="03">药剂师</option>
+				<option value="04">医生</option>
+				<option value="05">会员</option>
 			</select>
 	    </li>
 	    <li><label>&nbsp;</label><input type="submit" class="scbtn" value="查询" /></li>

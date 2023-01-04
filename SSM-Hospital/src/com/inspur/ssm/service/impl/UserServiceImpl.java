@@ -45,4 +45,9 @@ public class UserServiceImpl implements UserService{
 		return userssmMapper.deleteUserById(id);
 	}
 
+    @Override
+    public List<Userssm> queryUserssmByIdNameRole(String id, String username, String role) {
+		return userssmMapper.queryUserssmByIdNameRole(id,username,role);
+    }
+
 }

@@ -22,4 +22,6 @@ public interface UserService {
 	public int updateUserById(Userssm userssm);
 
 	public int deleteUserById(int id);
+
+	List<Userssm> queryUserssmByIdNameRole(String id,String username,String role);
 }

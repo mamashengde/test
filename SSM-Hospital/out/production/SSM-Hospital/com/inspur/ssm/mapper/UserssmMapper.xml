@@ -47,7 +47,19 @@
 	 <include refid="com.inspur.ssm.mapper.CommonMapper.pagingBottom"></include>
   </select> -->
 
-
+  <select id="queryUserssmByIdNameRole" resultType="com.inspur.ssm.pojo.Userssm">
+    select * from USERSSM
+    where 1=1
+    <if test="ID != '' and ID != null">
+      and id = #{ID}
+    </if>
+    <if test="USERNAME != ''  and USERNAME != null">
+      and username like '%${USERNAME}%'
+    </if>
+    <if test="ROLE != '' and ROLE != null">
+      and role = '${ROLE}'
+    </if>
+  </select>
   
   <select id="findUser" resultType="com.inspur.ssm.pojo.Userssm" parameterType="com.inspur.ssm.pojo.Userssm" >
     select t1.id,t1.username,t1.role,t1.realname,t1.password from USERSSM t1 where username = #{username} and password = #{password}
