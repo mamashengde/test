@@ -1,6 +1,7 @@
 package com.inspur.ssm.mapper;
 
 import com.inspur.ssm.pojo.Drugs;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -21,4 +22,12 @@ public interface DrugsMapper {
 
     //获取药品信息
     List<Drugs> getDrugsList();
+
+    int addDrugs(Drugs drugs);
+
+    Drugs getDrugsById(@Param("drugsid") int id);
+
+    int updateDrugs(Drugs drugs);
+
+    int deleteDrugsById(@Param("drugsid") int id);
 }

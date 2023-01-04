@@ -28,12 +28,12 @@
     where DRUGSID = #{drugsid,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.inspur.ssm.pojo.Drugs" >
-    insert into DRUGS (DRUGSID, NAME, PRICE, 
-      PURCHASEPRICE, NUM, INTRODUCEDATE, 
+    insert into DRUGS (DRUGSID, NAME, PRICE,
+      PURCHASEPRICE, NUM, INTRODUCEDATE,
       PRODUCTDATE, QUALITYPERIOD, SUPPLYUNIT, 
       PRODUCTUNIT)
-    values (#{drugsid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, 
-      #{purchaseprice,jdbcType=DECIMAL}, #{num,jdbcType=DECIMAL}, #{introducedate,jdbcType=DATE}, 
+    values (#{drugsid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL},
+      #{purchaseprice,jdbcType=DECIMAL}, #{num,jdbcType=DECIMAL}, #{introducedate,jdbcType=DATE},
       #{productdate,jdbcType=DATE}, #{qualityperiod,jdbcType=DATE}, #{supplyunit,jdbcType=VARCHAR}, 
       #{productunit,jdbcType=VARCHAR})
   </insert>
@@ -155,4 +155,57 @@
     select * from drugs
   </select>
 
+  <!--int addDrugs(Drugs drugs);-->
+  <insert id="addDrugs" parameterType="com.inspur.ssm.pojo.Drugs">
+    insert into DRUGS (DRUGSID, NAME, PRICE,
+                       PURCHASEPRICE, NUM, INTRODUCEDATE,
+                       PRODUCTDATE, QUALITYPERIOD, SUPPLYUNIT,
+                       PRODUCTUNIT)
+    values (null, #{name,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL},
+            #{purchaseprice,jdbcType=DECIMAL}, #{num,jdbcType=DECIMAL}, now(),
+            #{productdate,jdbcType=DATE}, #{qualityperiod,jdbcType=DATE}, #{supplyunit,jdbcType=VARCHAR},
+            #{productunit,jdbcType=VARCHAR})
+  </insert>
+
+  <!--Drugs getDrugsById(@Param("drugsid") int id);-->
+  <select id="getDrugsById" resultType="com.inspur.ssm.pojo.Drugs">
+    select * from drugs where drugsid = ${drugsid}
+  </select>
+
+  <!--int updateDrugs(Drugs drugs);-->
+  <update id="updateDrugs" parameterType="Drugs">
+    update drugs
+    <set >
+      <if test="name != null" >
+        name = #{name},
+      </if>
+      <if test="purchaseprice != null" >
+        purchaseprice=#{purchaseprice},
+      </if>
+      <if test="price != null" >
+        price=#{price},
+      </if>
+      <if test="num != null" >
+        num=#{num},
+      </if>
+      <if test="productdate != null" >
+        productdate = #{productdate},
+      </if>
+      <if test="qualityperiod != null" >
+        qualityperiod = #{qualityperiod},
+      </if>
+      <if test="supplyunit != null" >
+        supplyunit = #{supplyunit},
+      </if>
+      <if test="productunit != null" >
+        productunit = #{productunit},
+      </if>
+    </set>
+    where drugsid = #{drugsid}
+  </update>
+
+  <!--int deleteDrugsById(@Param("drugsid") int id);-->
+  <delete id="deleteDrugsById" parameterType="int">
+    delete from drugs where drugsid = #{drugsid}
+  </delete>
 </mapper>
