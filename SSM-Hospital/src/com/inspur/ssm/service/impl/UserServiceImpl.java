@@ -50,4 +50,9 @@ public class UserServiceImpl implements UserService{
 		return userssmMapper.queryUserssmByIdNameRole(id,username,role);
     }
 
+    @Override
+	public String getRoleByDigit(String role){
+		return userssmMapper.getRoleByDigit(role);
+	}
+
 }
