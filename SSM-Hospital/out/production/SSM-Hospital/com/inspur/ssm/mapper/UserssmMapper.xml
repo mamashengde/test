@@ -204,14 +204,12 @@
 
   <!--int addUserssm(Userssm userssm);-->
   <insert id="addUserssm" parameterType="com.inspur.ssm.pojo.Userssm">
-    insert into USERSSM (ID, USERNAME, PASSWORD,
+    insert into USERSSM (USERNAME, PASSWORD,
                          ROLE, REALNAME, TEL,
-                         AGE, SEX, ADDRESS,
-                         CREATEDATE)
-    values (null, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
-            #{role,jdbcType=VARCHAR}, #{realname,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR},
-            #{age,jdbcType=DECIMAL}, #{sex,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR},
-            now())
+                         AGE, SEX, ADDRESS,CREATEDATE)
+    values (#{username}, #{password},
+            #{role}, #{realname}, #{tel},
+            #{age}, #{sex}, #{address},now());
   </insert>
 
   <!--public List<Userssm> getUserList();-->
@@ -226,13 +224,34 @@
 
   <!--int updateUserById(Userssm userssm);-->
   <update id="updateUserById" parameterType="Userssm">
-    update userssm
-    set username=#{username},
-        realname=#{realname},
-        role=#{role},
-        tel=#{tel},
-        address=#{address}
-    where id = #{id}
+    update USERSSM
+    <set >
+      <if test="username != null" >
+        USERNAME = #{username},
+      </if>
+      <if test="password != null" >
+        PASSWORD = #{password},
+      </if>
+      <if test="role != null" >
+        ROLE = #{role},
+      </if>
+      <if test="realname != null" >
+        REALNAME = #{realname},
+      </if>
+      <if test="tel != null" >
+        TEL = #{tel},
+      </if>
+      <if test="age != null" >
+        AGE = #{age},
+      </if>
+      <if test="sex != null" >
+        SEX = #{sex},
+      </if>
+      <if test="address != null" >
+        ADDRESS = #{address},
+      </if>
+    </set>
+    where ID = #{id}
   </update>
 
   <!--int deleteUserById(@Param("id") int id);-->
