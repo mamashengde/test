@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/jsp/common/includehead.jsp"%>
+<%@ taglib prefix='fmt' uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -82,10 +83,10 @@
                         <td>${drugs.purchaseprice}</td>
                         <td>${drugs.price}</td>
                         <td>${drugs.num}</td>
-                        <td>${drugs.introducedate}</td>
+                        <td><fmt:formatDate value="${drugs.introducedate}" pattern="yyyy-MM-dd"></fmt:formatDate> </td>
                         <td>${drugs.productunit}</td>
-                        <td>${drugs.productdate}</td>
-                        <td>${drugs.qualityperiod}</td>
+                        <td><fmt:formatDate value="${drugs.productdate}" pattern="yyyy-MM-dd"></fmt:formatDate> </td>
+                        <td><fmt:formatDate value="${drugs.qualityperiod}" pattern="yyyy-MM-dd"></fmt:formatDate> </td>
                         <td>${drugs.supplyunit}</td>
                         <td><a ><img src="${ctx}/images/icon/edit.png" width="16" height="16" /></a>
                             <a ><img src="${ctx}/images/icon/del.png" width="16" height="16" /></a></td>
