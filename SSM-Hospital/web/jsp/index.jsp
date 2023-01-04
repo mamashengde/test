@@ -49,7 +49,7 @@ $(function(){
    		<c:if test="${user.role=='01'}"><!-- 管理员：用户信息管理、医生信息管理、科室管理、医生值班管理 -->
         	<ul>
                <li><a href="${ctx}/user/queryUserList" target="right">用户管理</a></li>
-               <li><a href="${ctx}/html/yplist.html" target="right">药品信息管理</a></li>
+               <li><a href="${ctx}/drugs/getDrugsList" target="right">药品信息管理</a></li>
                <li><a href="${ctx}/html/yslist.html" target="right">医生管理</a></li>
                <li><a href="${ctx}/html/kslist.html" target="right">科室管理</a></li>
                <li><a href="${ctx}/html/memberlist.html" target="right">会员管理</a></li>

@@ -150,4 +150,9 @@
       PRODUCTUNIT = #{productunit,jdbcType=VARCHAR}
     where DRUGSID = #{drugsid,jdbcType=VARCHAR}
   </update>
+
+  <select id="getDrugsList"  resultType="Drugs">
+    select * from drugs
+  </select>
+
 </mapper>

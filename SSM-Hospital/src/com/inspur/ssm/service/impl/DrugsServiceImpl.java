@@ -1,0 +1,22 @@
+package com.inspur.ssm.service.impl;
+
+import com.inspur.ssm.mapper.DrugsMapper;
+import com.inspur.ssm.pojo.Drugs;
+import com.inspur.ssm.pojo.Userssm;
+import com.inspur.ssm.service.DrugsService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service("DrugsService")
+public class DrugsServiceImpl implements DrugsService {
+
+    @Autowired
+    private DrugsMapper drugsMapper;
+
+    @Override
+    public List<Drugs> getDrugsList(){
+        return drugsMapper.getDrugsList();
+    }
+}
