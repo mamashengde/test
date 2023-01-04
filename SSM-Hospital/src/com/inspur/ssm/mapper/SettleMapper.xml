@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.inspur.ssm.mapper.SettleMapper">
+    <!-- 根据会员id，会员名称，挂号号进行查询 -->
+    <select id="querySettleById" resultType="Settle">
+    select * from  settle where memberid=#{arg0} and
+    membername=#{arg1} and
+    registno=#{arg2};
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="queryAllSettle" resultType="Settle">
+        select * from settle
+    </select>
+
+
+</mapper>

@@ -3,7 +3,7 @@ package com.inspur.ssm.pojo;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class Costsettledetails {
+public class Costsettledetails {//01费用结算明细查询
     private String id;
 
     private String memberid;

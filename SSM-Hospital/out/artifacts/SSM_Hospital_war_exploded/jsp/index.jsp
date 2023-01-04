@@ -64,7 +64,7 @@ $(function(){
            	<ul> 
                <li><a href="${ctx}/html/memberlist.html" target="right">会员管理</a></li>
                <li><a href="${ctx}/html/ghlist.html" target="right">挂号管理</a></li>
-               <li><a href="${ctx}/html/settle.html" target="right">费用结算</a></li>
+               <li><a href="${ctx}/settle/allSettle" target="right">费用结算</a></li>
             </ul>
            </c:if>
            <c:if test="${user.role=='03'}"><!-- 药剂师：药品管理、药品发放 -->
@@ -75,7 +75,7 @@ $(function(){
            </c:if>
            <c:if test="${user.role=='04'}"><!-- 医生：医生值班、医生诊断 -->
            	<ul> 
-              <li><a href="${ctx}/html/myyszblist.html" target="right">医生值班</a></li>
+              <li><a href="${ctx}/doctorduty/allDoctorduty" target="right">医生值班</a></li>
                <li><a href="${ctx}/html/myyzlist.html" target="right">医生诊断</a></li>
             </ul>
            </c:if>
