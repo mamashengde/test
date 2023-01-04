@@ -51,13 +51,13 @@
     <!--表格控件 -->
     <div id="widget table-widget">
         <div class="pageTitle">药品管理</div>
-        <div class="querybody">
+        <form name="queryForm" action="${pageContext.request.contextPath}/drugs/queryDrugs.action" method="post">
             <ul class="seachform">
-                <li><label>药品ID</label><input name="" type="text" class="scinput" /></li>
-                <li><label>药品名称</label><input name="" type="text" class="scinput" /></li>
+                <li><label>药品ID</label><input id="drugs" name="drugsid" type="text" class="scinput" /></li>
+                <li><label>药品名称</label><input id="name" name="name" type="text" class="scinput" /></li>
                 <li><label>&nbsp;</label><input name="" type="submit" class="scbtn" value="查询"/></li>
             </ul>
-        </div>
+        </form>
         <div class="pageColumn">
             <div class="pageButton"><a href="${ctx}/jsp/drugsAdd.jsp"><img src="../images/t01.png" title="新增"/></a><span>药品列表</span></div>
             <table>
@@ -89,7 +89,11 @@
                         <td><fmt:formatDate value="${drugs.qualityperiod}" pattern="yyyy-MM-dd"></fmt:formatDate> </td>
                         <td>${drugs.supplyunit}</td>
                         <td><a href="${pageContext.request.contextPath}/drugs/toUpdateDrugs?id=${drugs.drugsid}"><img src="${ctx}/images/icon/edit.png" width="16" height="16" /></a>
-                            <a href="${pageContext.request.contextPath}/drugs/deleteDrugs?id=${drugs.drugsid}"><img src="${ctx}/images/icon/del.png" width="16" height="16" /></a></td>
+                            <a href="${pageContext.request.contextPath}/drugs/deleteDrugs?id=${drugs.drugsid}"><img src="${ctx}/images/icon/del.png" width="16" height="16" /></a>
+                        </td>
+                        <td>
+                            <a href="${pageContext.request.contextPath}/drugs/tonumaddDrugspage?id=${drugs.drugsid}"><img src="${ctx}/images/icon/edit2.png" width="16" height="16" /></a>
+                        </td>
                     </tr>
                 </c:forEach>
                 </tbody>

@@ -50,27 +50,27 @@
                     -->
                     <tr>
                         <td width="20%" align="right">药品名</td>
-                        <td width="20%"><input type="text" id="names" name="name" /></td>
+                        <td width="20%"><input type="text" id="names" name="name" class="form-control"  required/></td>
                         <td width="10%" align="right">进价</td>
-                        <td width="50%"><input type="text" id="moneys" name="purchaseprice" /></td>
+                        <td width="50%"><input type="text" id="moneys" name="purchaseprice" class="form-control"  required/></td>
                     </tr>
                     <tr>
                         <td width="20%" align="right">售价</td>
-                        <td width="20%"><input type="text" id="mmoneys" name="price" /></td>
+                        <td width="20%"><input type="text" id="mmoneys" name="price" class="form-control"  required/></td>
                         <td width="10%" align="right">库存数量</td>
-                        <td width="50%"><input type="text" id="num" name="num" /></td>
+                        <td width="50%"><input type="text" id="num" name="num" class="form-control"  required/></td>
                     </tr>
                     <tr>
                         <td width="20%" align="right">生产厂商</td>
-                        <td width="20%"><input type="text" id="manufacturer" name="productunit" /></td>
+                        <td width="20%"><input type="text" id="manufacturer" name="productunit" class="form-control"  required/></td>
                         <td width="10%" align="right">生产日期</td>
-                        <td width="50%"><input type="date" id="dayofm" name="productdate" onClick="SelectDate(this.name)"/></td>
+                        <td width="50%"><input type="date" id="dayofm" name="productdate" onClick="SelectDate(this.name)" class="form-control"  required/></td>
                     </tr>
                     <tr>
                         <td width="20%" align="right">保质期</td>
-                        <td width="20%"><input type="date" id="qualityofp" name="qualityperiod" onClick="SelectDate(this.name)"/></td>
+                        <td width="20%"><input type="date" id="qualityofp" name="qualityperiod" onClick="SelectDate(this.name)" class="form-control"  required/></td>
                         <td width="10%" align="right">经销商</td>
-                        <td width="50%"><input type="text" id="agency" name="supplyunit" /></td>
+                        <td width="50%"><input type="text" id="agency" name="supplyunit" class="form-control"  required/></td>
                     </tr>
                     <tr>
                         <td colspan="4" align="center"><input type="submit" value="确定" /></td>

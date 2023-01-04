@@ -30,4 +30,8 @@ public interface DrugsMapper {
     int updateDrugs(Drugs drugs);
 
     int deleteDrugsById(@Param("drugsid") int id);
+
+    List<Drugs> queryDrugeByIdName(@Param("DRUGSID") String drugsid,@Param("NAME") String name);
+
+    int numaddDrugsById(@Param("DRUGSID") String drugsid,@Param("TOTALNUM")int totalnum);
 }

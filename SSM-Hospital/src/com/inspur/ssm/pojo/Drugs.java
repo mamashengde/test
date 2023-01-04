@@ -1,6 +1,5 @@
 package com.inspur.ssm.pojo;
 
-import com.sun.istack.internal.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;

@@ -39,4 +39,14 @@ public class DrugsServiceImpl implements DrugsService {
     public int deleteDrugsById(int id){
         return drugsMapper.deleteDrugsById(id);
     }
+
+    @Override
+    public List<Drugs> queryDrugeByIdName(String drugsid, String name) {
+        return drugsMapper.queryDrugeByIdName(drugsid,name);
+    }
+
+    @Override
+    public int numaddDrugsById(String drugsid,int totalnum) {
+        return drugsMapper.numaddDrugsById(drugsid,totalnum);
+    }
 }

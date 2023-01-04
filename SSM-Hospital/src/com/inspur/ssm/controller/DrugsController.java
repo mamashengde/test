@@ -55,4 +55,26 @@ public class DrugsController extends PageController {
         drugsService.deleteDrugsById(id);
         return "redirect:/drugs/getDrugsList";
     }
+
+    @RequestMapping("/queryDrugs")
+    public String queryDrugsByIdName(String drugsid,String name,Model model){
+        List<Drugs> list = drugsService.queryDrugeByIdName(drugsid,name);
+        model.addAttribute("DrugsList",list);
+        return "drugsList";
+    }
+
+    @RequestMapping("/tonumaddDrugspage")
+    public String tonumaddDrugs(int id,Model model){
+        Drugs drugs=drugsService.getDrugsById(id);
+        model.addAttribute("QDrugs",drugs);
+        return "drugsNumAdd";
+    }
+
+    @RequestMapping("/numaddDrugs")
+    public String numaddDrugsById(String drugsid,int num,int addnum){
+        int totalnum=num+addnum;
+        drugsService.numaddDrugsById(drugsid,totalnum);
+        return "redirect:/drugs/getDrugsList";
+    }
+
 }
