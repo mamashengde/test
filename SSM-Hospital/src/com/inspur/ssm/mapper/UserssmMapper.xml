@@ -260,4 +260,9 @@
     delete from userssm where id = #{id}
   </delete>
 
+  <!--String getRoleByDigit(@Param("role") String role);-->
+  <select id="getRoleByDigit" parameterType="String">
+    select rolename from userrolelist where roleid = #{role}
+  </select>
+
 </mapper>
