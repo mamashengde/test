@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.inspur.ssm.mapper.DrugdistMapper">
+    <!-- 根据挂号号和会员id进行查询 -->
+    <select id="queryDrugdistById" resultType="Drugdist">
+        select * from  drugdist where 1=1 <if test="arg0!=null and arg0!=''">and registno=#{arg0}</if>
+        <if test="arg1!=null and arg1!=''">and memberid=#{arg1}</if>
+    </select>
+
+    <!-- 查询所有药品发放信息 -->
+    <select id="queryAllDrugdist" resultType="Drugdist">
+        select * from drugdist
+    </select>
+
+
+</mapper>
