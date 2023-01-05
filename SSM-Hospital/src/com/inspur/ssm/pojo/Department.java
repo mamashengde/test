@@ -2,7 +2,7 @@ package com.inspur.ssm.pojo;
 
 import java.util.Date;
 
-public class Department {
+public class Department {  //01科室管理
     private String departid;
 
     private String name;

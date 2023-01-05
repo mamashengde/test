@@ -2,16 +2,14 @@ package com.inspur.ssm.mapper;
 
 import com.inspur.ssm.pojo.Doctorduty;
 
+
+import java.util.Date;
+import java.util.List;
+
 public interface DoctordutyMapper {
-    int deleteByPrimaryKey(String ddid);
+    //查询一条记录
+    List<Doctorduty> queryDoctordutyById(String docid, String dutydate);
 
-    int insert(Doctorduty record);
-
-    int insertSelective(Doctorduty record);
-
-    Doctorduty selectByPrimaryKey(String ddid);
-
-    int updateByPrimaryKeySelective(Doctorduty record);
-
-    int updateByPrimaryKey(Doctorduty record);
+    //查询全部的记录
+    List<Doctorduty> queryAllDoctorduty();
 }

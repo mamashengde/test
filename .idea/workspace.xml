@@ -26,7 +26,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Yfnic/Desktop/软件开发 实训实习/SSM-Hospital/SSM-Hospital",
+    "last_opened_file_path": "D:/JAVA_workspace/IDEA_Workspace/test/SSM-Hospital",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -53,6 +53,7 @@
       <updated>1672574156714</updated>
       <workItem from="1672574159013" duration="131000" />
       <workItem from="1672588066506" duration="52000" />
+      <workItem from="1672652096853" duration="31000" />
     </task>
     <servers />
   </component>

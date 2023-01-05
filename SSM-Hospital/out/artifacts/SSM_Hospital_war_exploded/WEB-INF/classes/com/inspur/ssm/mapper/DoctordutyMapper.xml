@@ -1,71 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.inspur.ssm.mapper.DoctordutyMapper" >
-  <resultMap id="BaseResultMap" type="com.inspur.ssm.pojo.Doctorduty" >
-    <id column="DDID" property="ddid" jdbcType="VARCHAR" />
-    <result column="DOCID" property="docid" jdbcType="VARCHAR" />
-    <result column="DUTYDAY" property="dutyday" jdbcType="DATE" />
-  </resultMap>
-  <sql id="Base_Column_List" >
-    DDID, DOCID, DUTYDAY
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select 
-    <include refid="Base_Column_List" />
-    from DOCTORDUTY
-    where DDID = #{ddid,jdbcType=VARCHAR}
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.inspur.ssm.mapper.DoctordutyMapper">
+  <!-- 根据医生id和日期进行查询 -->
+  <select id="queryDoctordutyById" resultType="Doctorduty">
+    select * from  doctorduty where 1=1 <if test="arg0!=null and arg0!=''">and docid=#{arg0}</if>
+    <if test="arg1!=null and arg1!=''">and dutydate=#{arg1}</if>
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
-    delete from DOCTORDUTY
-    where DDID = #{ddid,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.inspur.ssm.pojo.Doctorduty" >
-    insert into DOCTORDUTY (DDID, DOCID, DUTYDAY
-      )
-    values (#{ddid,jdbcType=VARCHAR}, #{docid,jdbcType=VARCHAR}, #{dutyday,jdbcType=DATE}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.inspur.ssm.pojo.Doctorduty" >
-    insert into DOCTORDUTY
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="ddid != null" >
-        DDID,
-      </if>
-      <if test="docid != null" >
-        DOCID,
-      </if>
-      <if test="dutyday != null" >
-        DUTYDAY,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="ddid != null" >
-        #{ddid,jdbcType=VARCHAR},
-      </if>
-      <if test="docid != null" >
-        #{docid,jdbcType=VARCHAR},
-      </if>
-      <if test="dutyday != null" >
-        #{dutyday,jdbcType=DATE},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.inspur.ssm.pojo.Doctorduty" >
-    update DOCTORDUTY
-    <set >
-      <if test="docid != null" >
-        DOCID = #{docid,jdbcType=VARCHAR},
-      </if>
-      <if test="dutyday != null" >
-        DUTYDAY = #{dutyday,jdbcType=DATE},
-      </if>
-    </set>
-    where DDID = #{ddid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.inspur.ssm.pojo.Doctorduty" >
-    update DOCTORDUTY
-    set DOCID = #{docid,jdbcType=VARCHAR},
-      DUTYDAY = #{dutyday,jdbcType=DATE}
-    where DDID = #{ddid,jdbcType=VARCHAR}
-  </update>
+
+  <!-- 查询所有值班信息 -->
+  <select id="queryAllDoctorduty" resultType="Doctorduty">
+    select * from doctorduty
+  </select>
+
+
 </mapper>

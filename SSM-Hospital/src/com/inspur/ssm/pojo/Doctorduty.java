@@ -2,34 +2,41 @@ package com.inspur.ssm.pojo;
 
 import java.util.Date;
 
-public class Doctorduty {
-    private String ddid;
+public class Doctorduty {//01医生值班管理
 
-    private String docid;
+    private int docid;
 
-    private Date dutyday;
+    private Date dutydate;
 
-    public String getDdid() {
-        return ddid;
+    public Doctorduty() {
     }
 
-    public void setDdid(String ddid) {
-        this.ddid = ddid == null ? null : ddid.trim();
+    public Doctorduty(int docid, Date dutydate) {
+        this.docid = docid;
+        this.dutydate = dutydate;
     }
 
-    public String getDocid() {
+    public int getDocid() {
         return docid;
     }
 
-    public void setDocid(String docid) {
-        this.docid = docid == null ? null : docid.trim();
+    public void setDocid(int docid) {
+        this.docid = docid;
     }
 
-    public Date getDutyday() {
-        return dutyday;
+    public Date getDutydate() {
+        return dutydate;
     }
 
-    public void setDutyday(Date dutyday) {
-        this.dutyday = dutyday;
+    public void setDutydate(Date dutydate) {
+        this.dutydate = dutydate;
+    }
+
+    @Override
+    public String toString() {
+        return "Doctorduty{" +
+                "docid=" + docid +
+                ", dutydate=" + dutydate +
+                '}';
     }
 }

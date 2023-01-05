@@ -11,9 +11,7 @@ public class PageController {
 	/**
 	 * oracel的三层分页语句	
 	 * 子类在展现数据前,进行分页计算!
-	 * @param querySql  查询的SQL语句,未进行分页
 	 * @param totalCount 根据查询SQL获取的总条数
-	 * @param columnNameDescOrAsc 列名+排序方式 : ID DESC or ASC
 	 */
 	protected Page executePage(HttpServletRequest request,Long totalCount){
 		if(null == totalCount){
