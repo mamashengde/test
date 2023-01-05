@@ -82,8 +82,8 @@
             <td>${doctors.docid}</td>
             <td>${doctors.name}</td>
             <td>${doctors.password}</td>
-            <!--<td>${doctors.role eq 01 ? "管理员":userssm.role eq 02 ? "大堂服务员":
-            userssm.role eq 03 ? "药剂师": userssm.role eq 04 ? "医生": userssm.role eq 05 ? "会员":"未知"}</td>-->
+            <%--<td>${doctors.role eq 01 ? "管理员":userssm.role eq 02 ? "大堂服务员":
+            userssm.role eq 03 ? "药剂师": userssm.role eq 04 ? "医生": userssm.role eq 05 ? "会员":"未知"}</td>--%>
             <td>${doctors.realname}</td>
             <td>${doctors.departid}</td>
             <td>${doctors.positional}</td>
@@ -91,8 +91,8 @@
             <td>${doctors.age}</td>
             <td>${doctors.sex}</td>
             <td>${doctors.address}</td>
-            <td><a href="${pageContext.request.contextPath}/user/toUpdateUser?id=${userssm.id}"><img src="${ctx}/images/icon/edit.png" width="16" height="16" /></a>
-              <a href="${pageContext.request.contextPath}/user/deleteUser?id=${userssm.id}"><img src="${ctx}/images/icon/del.png" width="16" height="16" /></a></td>
+            <td><a href="${pageContext.request.contextPath}/doctors/toUpdateDoctors?docid=${doctors.docid}"><img src="${ctx}/images/icon/edit.png" width="16" height="16" /></a>
+              <a href="${pageContext.request.contextPath}/doctors/deleteDoctors?docid=${doctors.docid}"><img src="${ctx}/images/icon/del.png" width="16" height="16" /></a></td>
           </tr>
         </c:forEach>
         </tbody>

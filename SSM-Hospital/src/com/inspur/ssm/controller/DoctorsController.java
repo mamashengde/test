@@ -29,4 +29,23 @@ public class DoctorsController extends PageController{
         doctorsService.addDoctors(doctors);
         return "redirect:/doctors/getDoctorsList";
     }
+
+    @RequestMapping("/deleteDoctors")
+    public String deleteDoctors(int docid){
+        doctorsService.deleteDoctors(docid);
+        return "redirect:/doctors/getDoctorsList";
+    }
+
+    @RequestMapping("/toUpdateDoctors")
+    public String toUpdateDoctors(Model model , int docid){
+        Doctors doctors = doctorsService.getDoctorsById(docid);
+        model.addAttribute("QDoctors",doctors);
+        return "updateDoctors";
+    }
+
+    @RequestMapping("updateDoctors")
+    public String updateDoctors(Doctors doctors){
+        doctorsService.updateDoctors(doctors);
+        return "redirect:/doctors/getDoctorsList";
+    }
 }

@@ -83,12 +83,7 @@
                         <td></td>
                         <td></td>
                     </tr>
-                    <tr>
-                        <td align="right">角色</td>
-                        <td ><input type="text" id="role" name="role"/></td>
-                        <td align="right">负责项</td>
-                        <td ><input type="text" id="rocharge" name="rocharge"/></td>
-                    </tr>
+
                     <tr>
                         <td colspan="4" align="center"><input type="submit" value="确定"/> </td>
                     </tr>

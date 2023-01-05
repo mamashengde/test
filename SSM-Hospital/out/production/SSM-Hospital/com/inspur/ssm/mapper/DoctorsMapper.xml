@@ -28,7 +28,7 @@
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from DOCTORS
-    where DOCID = #{docid,jdbcType=VARCHAR}
+    where DOCID = #{docid}
   </delete>
   <insert id="insert" parameterType="com.inspur.ssm.pojo.Doctors" >
     insert into DOCTORS (DOCID, NAME, PASSWORD, 
@@ -37,10 +37,10 @@
       TEL, ADDRESS, ROCHARGE, 
       CREATEDATE)
     values (#{docid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{role,jdbcType=VARCHAR}, #{realname,jdbcType=VARCHAR}, #{departid,jdbcType=VARCHAR}, 
+      '04', #{realname,jdbcType=VARCHAR}, #{departid,jdbcType=VARCHAR},
       #{positional,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{age,jdbcType=DECIMAL}, 
       #{tel,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{rocharge,jdbcType=DECIMAL}, 
-      #{createdate,jdbcType=DATE})
+      now())
   </insert>
   <insert id="insertSelective" parameterType="com.inspur.ssm.pojo.Doctors" >
     insert into DOCTORS
@@ -196,7 +196,32 @@
   
   <!--int addDoctors(Doctors doctors);-->
   <insert id="addDoctors" parameterType="com.inspur.ssm.pojo.Doctors">
-    insert into doctors(name,password,role,realname,departid,positional,sex,age,tel,address,rocharge,createdate)
-    values(#{name},#{password},#{role},#{realname},#{departid},#{positional},#{sex},#{age},#{tel},#{address},#{rocharge},now())
+    insert into doctors(name,password,ROLE,realname,departid,positional,sex,age,tel,address,rocharge,CREATEDATE)
+    values(#{name},#{password},'04',#{realname},#{departid},#{positional},#{sex},#{age},#{tel},#{address},#{rocharge},now())
   </insert>
+
+  <!--int deleteDoctors(int docid);-->
+  <delete id="deleteDoctors" parameterType="int">
+    delete from doctors where docid = #{docid}
+  </delete>
+
+  <!--public Doctors getDoctorsById(int docid);-->
+  <select id="getDoctorsById" resultType="com.inspur.ssm.pojo.Doctors">
+    select * from doctors where docid = #{docid}
+  </select>
+
+  <!--public int updateDoctors(Doctors doctors);-->
+  <update id="updateDoctors" parameterType="com.inspur.ssm.pojo.Doctors">
+    update DOCTORS
+    set NAME = #{name},
+        PASSWORD = #{password},
+        REALNAME = #{realname},
+        DEPARTID = #{departid},
+        POSITIONAL = #{positional},
+        SEX = #{sex},
+        AGE = #{age},
+        TEL = #{tel},
+        ADDRESS = #{address}
+    where DOCID = #{docid}
+  </update>
 </mapper>

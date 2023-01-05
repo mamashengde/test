@@ -38,14 +38,14 @@
   </select> 
   
 
-  <!--  <select id="getUserList"  resultType="java.util.List" resultMap="BaseResultMap" parameterType="java.util.HashMap">
+  <select id="getUserList2"  resultType="java.util.List" resultMap="BaseResultMap" parameterType="java.util.HashMap">
      <include refid="com.inspur.ssm.mapper.CommonMapper.pagingTop"></include>
 	     select * from USERSSM	t
 	     <where>
 			<include refid="query_user_where"></include>
 		</where>
 	 <include refid="com.inspur.ssm.mapper.CommonMapper.pagingBottom"></include>
-  </select> -->
+  </select>
 
   <select id="queryUserssmByIdNameRole" resultType="com.inspur.ssm.pojo.Userssm">
     select * from USERSSM
