@@ -85,8 +85,8 @@
             <%--<td>${doctors.role eq 01 ? "管理员":userssm.role eq 02 ? "大堂服务员":
             userssm.role eq 03 ? "药剂师": userssm.role eq 04 ? "医生": userssm.role eq 05 ? "会员":"未知"}</td>--%>
             <td>${doctors.realname}</td>
-            <td>${doctors.departid}</td>
-            <td>${doctors.positional}</td>
+            <td>${doctors.departid eq 1 ? "外科":doctors.departid eq 2 ? "内科": doctors.departid eq 3 ? "神经科": doctors.departid eq 4 ? "心脏科":"未知"}</td>
+            <td>${doctors.positional eq 1 ? "技师":doctors.positional eq 2 ? "主任医师": doctors.positional eq 3 ? "专家": "未知"}</td>
             <td>${doctors.tel}</td>
             <td>${doctors.age}</td>
             <td>${doctors.sex}</td>
