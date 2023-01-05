@@ -218,4 +218,19 @@
         ADDRESS = #{address}
     where DOCID = #{docid}
   </update>
+
+  <!-- List<Doctors> qureyDoctor(@Param("DOCID")String c,@Param("NAME")String name,@Param("DEPARTID")String departid); -->
+  <select id="qureyDoctor" resultType="com.inspur.ssm.pojo.Doctors">
+    select * from DOCTORS
+    where 1=1
+    <if test="DOCID != '' and DOCID != null">
+      and docid like '%${DOCID}%'
+    </if>
+    <if test="NAME != ''  and NAME != null">
+      and name like '%${NAME}%'
+    </if>
+    <if test="DEPARTID != '' and DEPARTID != null">
+      and departid = '${DEPARTID}'
+    </if>
+  </select>
 </mapper>

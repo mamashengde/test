@@ -2,11 +2,13 @@ package com.inspur.ssm.controller;
 
 
 import com.inspur.ssm.pojo.Doctors;
+import com.inspur.ssm.pojo.Userssm;
 import com.inspur.ssm.service.DoctorsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -48,4 +50,18 @@ public class DoctorsController extends PageController{
         doctorsService.updateDoctors(doctors);
         return "redirect:/doctors/getDoctorsList";
     }
+
+    @RequestMapping("/queryDoctor")
+    public String queryDoctor(String docid,String name,String departid, Model model) {
+        List<Doctors> list = doctorsService.qureyDoctor(docid,name,departid);
+
+        if (list == null) {
+            list = doctorsService.getDoctorsList();
+            model.addAttribute("error", "未查到");
+        }
+
+        model.addAttribute("doctorsList", list);
+        return "doctorsList";
+    }
+    
 }

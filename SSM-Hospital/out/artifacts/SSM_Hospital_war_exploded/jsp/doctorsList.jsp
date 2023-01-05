@@ -45,20 +45,22 @@
   <div id="widget table-widget">
     <div class="pageTitle">医生管理</div>
     <div class="querybody">
+      <form name="queryForm" action="${pageContext.request.contextPath}/doctors/queryDoctor.action" method="post">
       <ul class="seachform">
-        <li><label>医生ID</label><input name="" type="text" class="scinput" /></li>
-        <li><label>医生名称</label><input name="" type="text" class="scinput" /></li>
+        <li><label>医生ID</label><input id="docid" name="docid" type="text" class="scinput" /></li>
+        <li><label>医生名称</label><input id="name" name="name" type="text" class="scinput" /></li>
         <li><label>科室</label>
-          <select style="width:150px;height:32px;">
-            <option value="0">请选择</option>
+          <select id="departid" name="departid" style="width:150px;height:32px;">
+            <option value="">请选择</option>
             <option value="1">外科</option>
             <option value="2">内科</option>
             <option value="3">神经科</option>
             <option value="4">心脏科</option>
           </select>
         </li>
-        <li><label>&nbsp;</label><input name="" type="submit" class="scbtn" value="查询"/></li>
+        <li><label>&nbsp;</label><input type="submit" class="scbtn" value="查询"/></li>
       </ul>
+      </form>
     </div>
     <div class="pageColumn">
       <div class="pageButton"><a href="${ctx}/jsp/doctorsAdd.jsp"><img src="../images/t01.png" title="新增"/></a><span>医生列表</span></div>

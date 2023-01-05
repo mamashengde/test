@@ -30,4 +30,6 @@ public interface DoctorsMapper {
     Doctors getDoctorsById(@Param("docid") int docid);
 
     int updateDoctors(Doctors doctors);
+
+    List<Doctors> qureyDoctor(@Param("DOCID")String docid,@Param("NAME")String name,@Param("DEPARTID")String departid);
 }

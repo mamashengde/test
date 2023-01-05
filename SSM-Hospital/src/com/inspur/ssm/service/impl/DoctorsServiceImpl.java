@@ -38,4 +38,9 @@ public class DoctorsServiceImpl implements DoctorsService {
     public int updateDoctors(Doctors doctors){
         return doctorsMapper.updateDoctors(doctors);
     }
+
+    @Override
+    public List<Doctors> qureyDoctor(String docid, String name, String departid) {
+        return doctorsMapper.qureyDoctor(docid,name,departid);
+    }
 }

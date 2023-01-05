@@ -40,7 +40,7 @@
                         <td align="right">所属科室</td>
                         <td >
                             <select id="depart" name="departid" >
-                                <option value="0">请选择</option>
+                                <option value="">请选择</option>
                                 <option value="1">外科</option>
                                 <option value="2">内科</option>
                                 <option value="3">神经科</option>
@@ -50,7 +50,7 @@
                         <td align="right">职称</td>
                         <td >
                             <select id="positional" name="positional" >
-                                <option value="0">请选择</option>
+                                <option value="">请选择</option>
                                 <option value="1">技师</option>
                                 <option value="2">主任医师</option>
                                 <option value="3">专家</option>

@@ -54,7 +54,7 @@ $(function(){
                <li><a href="${ctx}/html/kslist.html" target="right">科室管理</a></li>
                <li><a href="${ctx}/html/memberlist.html" target="right">会员管理</a></li>
                <li><a href="${ctx}/html/ghlist.html" target="right">挂号管理</a></li>
-               <li><a href="${ctx}/html/yszblist.html" target="right">医生值班管理</a></li>
+               <li><a href="${ctx}/doctorduty/allDoctorduty" target="right">医生值班管理</a></li>
                <li><a href="${ctx}/html/yzlist.html" target="right">医生诊断管理</a></li>
                <li><a href="${ctx}/html/payDlist.html" target="right">缴费明细查询</a></li>
                <li><a href="${ctx}/html/settleDlist.html" target="right">费用结算明细查询</a></li>
@@ -69,7 +69,7 @@ $(function(){
            </c:if>
            <c:if test="${user.role=='03'}"><!-- 药剂师：药品管理、药品发放 -->
            	<ul> 
-               <li><a href="${ctx}/html/yplist.html" target="right">药品信息管理</a></li>
+               <li><a href="${ctx}/drugs/getDrugsList" target="right">药品信息管理</a></li>
                <li><a href="${ctx}/html/ypfflist.html" target="right">药品发放</a></li>
             </ul>
            </c:if>
