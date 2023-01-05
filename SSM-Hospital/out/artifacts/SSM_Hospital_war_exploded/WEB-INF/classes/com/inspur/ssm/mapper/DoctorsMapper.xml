@@ -185,4 +185,18 @@
       CREATEDATE = #{createdate,jdbcType=DATE}
     where DOCID = #{docid,jdbcType=VARCHAR}
   </update>
+
+
+
+
+  <!--List<Doctors> getDoctorsList();-->
+  <select id="getDoctorsList" resultType="com.inspur.ssm.pojo.Doctors">
+    select * from doctors
+  </select>
+  
+  <!--int addDoctors(Doctors doctors);-->
+  <insert id="addDoctors" parameterType="com.inspur.ssm.pojo.Doctors">
+    insert into doctors(name,password,role,realname,departid,positional,sex,age,tel,address,rocharge,createdate)
+    values(#{name},#{password},#{role},#{realname},#{departid},#{positional},#{sex},#{age},#{tel},#{address},#{rocharge},now())
+  </insert>
 </mapper>

@@ -24,4 +24,6 @@ public interface UserService {
 	public int deleteUserById(int id);
 
 	List<Userssm> queryUserssmByIdNameRole(String id,String username,String role);
+
+	public String getRoleByDigit(String role);
 }

@@ -2,6 +2,8 @@ package com.inspur.ssm.controller;
 
 import java.util.List;
 
+import com.inspur.ssm.pojo.userrolelist;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -110,4 +112,10 @@ public class UserController extends PageController{
 		return "adminList";
 	}
 
+	//角色从数字转化到所对应的汉字，如'01'-'管理员'
+	@RequestMapping("/tranRole")
+	public void tranRole(Model model,String role){
+		String Role = userService.getRoleByDigit(role);
+		model.addAttribute("reaRole",Role);
+	}
 }

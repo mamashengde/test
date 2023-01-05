@@ -39,13 +39,13 @@
                 <table >
                     <tr>
                         <td width="20%" align="right">用户名</td>
-                        <td width="20%"><input type="text" id="username" name="username"/></td>
+                        <td width="20%"><input type="text" id="username" name="username" class="form-control"  required/></td>
                         <td width="10%" align="right">用户密码</td>
-                        <td width="50%"><input type="text" id="password" name="password"/></td>
+                        <td width="50%"><input type="text" id="password" name="password" class="form-control"  required/></td>
                     </tr>
                     <tr>
                         <td width="20%" align="right">姓名</td>
-                        <td width="20%"><input type="text" id="realname" name="realname"/></td>
+                        <td width="20%"><input type="text" id="realname" name="realname" class="form-control"  required/></td>
                         <td width="10%" align="right">性别</td>
                         <td width="50%">
                             <select id="sex" name="sex" >
@@ -87,13 +87,13 @@
                             </select>
                         </td>
                         <td width="10%" align="right">联系电话</td>
-                        <td width="50%"><input type="text" id="tel" name="tel"/></td>
+                        <td width="50%"><input type="text" id="tel" name="tel" class="form-control"  required/></td>
                     </tr>
                     <tr>
                         <td width="20%" align="right">年龄</td>
-                        <td width="20%"><input type="text" id="age" name="age"/></td>
+                        <td width="20%"><input type="text" id="age" name="age" class="form-control"  required/></td>
                         <td width="10%" align="right">家庭住址</td>
-                        <td width="50%"><input type="text" id="address" name="address"/></td>
+                        <td width="50%"><input type="text" id="address" name="address" class="form-control"  required/></td>
                         <td></td>
                         <td></td>
                     </tr>

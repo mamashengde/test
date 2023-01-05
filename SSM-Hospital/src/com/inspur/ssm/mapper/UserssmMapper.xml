@@ -210,6 +210,7 @@
     values (#{username}, #{password},
             #{role}, #{realname}, #{tel},
             #{age}, #{sex}, #{address},now());
+
   </insert>
 
   <!--public List<Userssm> getUserList();-->
@@ -258,5 +259,10 @@
   <delete id="deleteUserById" parameterType="int">
     delete from userssm where id = #{id}
   </delete>
+
+  <!--String getRoleByDigit(@Param("role") String role);-->
+  <select id="getRoleByDigit" parameterType="String">
+    select rolename from userrolelist where roleid = #{role}
+  </select>
 
 </mapper>

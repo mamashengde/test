@@ -1,9 +1,12 @@
 package com.inspur.ssm.pojo;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
 public class Drugs {
+
     private String drugsid;
 
     private String name;
@@ -16,8 +19,10 @@ public class Drugs {
 
     private Date introducedate;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date productdate;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date qualityperiod;
 
     private String supplyunit;
