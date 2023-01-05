@@ -13,12 +13,10 @@
     <result column="AGE" property="age" jdbcType="DECIMAL" />
     <result column="TEL" property="tel" jdbcType="VARCHAR" />
     <result column="ADDRESS" property="address" jdbcType="VARCHAR" />
-    <result column="ROCHARGE" property="rocharge" jdbcType="DECIMAL" />
     <result column="CREATEDATE" property="createdate" jdbcType="DATE" />
   </resultMap>
   <sql id="Base_Column_List" >
-    DOCID, NAME, PASSWORD, ROLE, REALNAME, DEPARTID, POSITIONAL, SEX, AGE, TEL, ADDRESS, 
-    ROCHARGE, CREATEDATE
+    DOCID, NAME, PASSWORD, ROLE, REALNAME, DEPARTID, POSITIONAL, SEX, AGE, TEL, ADDRESS,  CREATEDATE
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
@@ -34,12 +32,12 @@
     insert into DOCTORS (DOCID, NAME, PASSWORD, 
       ROLE, REALNAME, DEPARTID, 
       POSITIONAL, SEX, AGE, 
-      TEL, ADDRESS, ROCHARGE, 
+      TEL, ADDRESS,
       CREATEDATE)
     values (#{docid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       '04', #{realname,jdbcType=VARCHAR}, #{departid,jdbcType=VARCHAR},
       #{positional,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{age,jdbcType=DECIMAL}, 
-      #{tel,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{rocharge,jdbcType=DECIMAL}, 
+      #{tel,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR},
       now())
   </insert>
   <insert id="insertSelective" parameterType="com.inspur.ssm.pojo.Doctors" >
@@ -160,9 +158,6 @@
       <if test="address != null" >
         ADDRESS = #{address,jdbcType=VARCHAR},
       </if>
-      <if test="rocharge != null" >
-        ROCHARGE = #{rocharge,jdbcType=DECIMAL},
-      </if>
       <if test="createdate != null" >
         CREATEDATE = #{createdate,jdbcType=DATE},
       </if>
@@ -181,7 +176,6 @@
       AGE = #{age,jdbcType=DECIMAL},
       TEL = #{tel,jdbcType=VARCHAR},
       ADDRESS = #{address,jdbcType=VARCHAR},
-      ROCHARGE = #{rocharge,jdbcType=DECIMAL},
       CREATEDATE = #{createdate,jdbcType=DATE}
     where DOCID = #{docid,jdbcType=VARCHAR}
   </update>
@@ -196,8 +190,8 @@
   
   <!--int addDoctors(Doctors doctors);-->
   <insert id="addDoctors" parameterType="com.inspur.ssm.pojo.Doctors">
-    insert into doctors(name,password,ROLE,realname,departid,positional,sex,age,tel,address,rocharge,CREATEDATE)
-    values(#{name},#{password},'04',#{realname},#{departid},#{positional},#{sex},#{age},#{tel},#{address},#{rocharge},now())
+    insert into doctors(name,password,ROLE,realname,departid,positional,sex,age,tel,address,CREATEDATE)
+    values(#{name},#{password},'04',#{realname},#{departid},#{positional},#{sex},#{age},#{tel},#{address},now())
   </insert>
 
   <!--int deleteDoctors(int docid);-->

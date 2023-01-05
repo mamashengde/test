@@ -26,8 +26,6 @@ public class Doctors {
 
     private String address;
 
-    private Integer rocharge;
-
     private Date createdate;
 
     public String getDocid() {
@@ -118,14 +116,6 @@ public class Doctors {
         this.address = address == null ? null : address.trim();
     }
 
-    public Integer getRocharge() {
-        return rocharge;
-    }
-
-    public void setRocharge(Integer rocharge) {
-        this.rocharge = rocharge;
-    }
-
     public Date getCreatedate() {
         return createdate;
     }
@@ -149,7 +139,6 @@ public class Doctors {
         this.age = age;
         this.tel = tel;
         this.address = address;
-        this.rocharge = rocharge;
         this.createdate = createdate;
     }
 
@@ -167,7 +156,6 @@ public class Doctors {
                 ", age=" + age +
                 ", tel='" + tel + '\'' +
                 ", address='" + address + '\'' +
-                ", rocharge=" + rocharge +
                 ", createdate=" + createdate +
                 '}';
     }
