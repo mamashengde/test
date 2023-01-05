@@ -8,12 +8,23 @@ public class Doctorduty {//01医生值班管理
 
     private Date dutydate;
 
+    private int dutyid;
+
     public Doctorduty() {
     }
 
-    public Doctorduty(int docid, Date dutydate) {
+    public Doctorduty(int docid, Date dutydate, int dutyid) {
         this.docid = docid;
         this.dutydate = dutydate;
+        this.dutyid = dutyid;
+    }
+
+    public int getDutyid() {
+        return dutyid;
+    }
+
+    public void setDutyid(int dutyid) {
+        this.dutyid = dutyid;
     }
 
     public int getDocid() {
@@ -32,11 +43,13 @@ public class Doctorduty {//01医生值班管理
         this.dutydate = dutydate;
     }
 
+
     @Override
     public String toString() {
         return "Doctorduty{" +
                 "docid=" + docid +
                 ", dutydate=" + dutydate +
+                ", dutyid=" + dutyid +
                 '}';
     }
 }

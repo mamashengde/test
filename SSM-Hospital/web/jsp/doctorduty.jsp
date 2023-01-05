@@ -44,7 +44,7 @@
 <div id="contentWrap">
   <!--表格控件 -->
   <div id="widget table-widget">
-    <div class="pageTitle">我的值班</div>
+    <div class="pageTitle">医生值班列表</div>
     <div class="querybody">
       <ul class="seachform">
         <form class="form-inline" action="${pageContext.request.contextPath}/doctorduty/queryDoctorduty" method="post" style="float: left">
@@ -55,20 +55,27 @@
       </ul>
     </div>
     <div class="pageColumn">
-      <div class="pageButton"><span>我的值班列表</span></div>
+      <div class="pageButton"><a href="../jsp/addDoctorduty.jsp"><img src="../images/t01.png" title="新增"/></a><span>医生值班列表</span></div>
       <table>
         <thead>
-        <th width="">id</th>
+        <th width="">值班ID</th>
+        <th width="">医生ID</th>
         <th width="">日期</th>
+        <th width="10%">操作</th>
         </thead>
         <tbody>
 
 
         <c:forEach var="doctorduty" items="${list}">
           <tr>
+            <td>${doctorduty.dutyid}</td>
             <td>${doctorduty.docid}</td>
-            <%--            <td>${doctorduty.dutydate}</td>--%>
             <td><fmt:formatDate value="${doctorduty.dutydate}" pattern="yyyy-MM-dd"/></td>
+            <td>
+<%--              <a onclick="deletes(id)"><img src="../images/icon/del.png" width="16" height="16" /></a>--%>
+              <a href="${pageContext.request.contextPath}/doctorduty/deleteDoctorduty/${doctorduty.dutyid}">
+                <img src="../images/icon/del.png" title="删除" width="16" height="16" /></a>
+            </td>
 
           </tr>
         </c:forEach>

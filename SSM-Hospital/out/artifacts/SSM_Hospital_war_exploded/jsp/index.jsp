@@ -70,7 +70,7 @@ $(function(){
            <c:if test="${user.role=='03'}"><!-- 药剂师：药品管理、药品发放 -->
            	<ul> 
                <li><a href="${ctx}/html/yplist.html" target="right">药品信息管理</a></li>
-               <li><a href="${ctx}/html/ypfflist.html" target="right">药品发放</a></li>
+               <li><a href="${ctx}/drugdist/allDrugdist" target="right">药品发放</a></li>
             </ul>
            </c:if>
            <c:if test="${user.role=='04'}"><!-- 医生：医生值班、医生诊断 -->

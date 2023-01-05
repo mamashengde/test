@@ -9,10 +9,20 @@
     <if test="arg1!=null and arg1!=''">and dutydate=#{arg1}</if>
   </select>
 
+  <!-- 删除 -->
+  <delete id="deleteDoctordutyById" parameterType="int">
+    delete from doctorduty where dutyID=#{DUTYID}
+  </delete>
+
   <!-- 查询所有值班信息 -->
   <select id="queryAllDoctorduty" resultType="Doctorduty">
     select * from doctorduty
   </select>
 
+  <!--  插入一条值班信息-->
+  <insert id="addDoctorduty" parameterType="Doctorduty">
+    insert into doctorduty (docid,dutydate)
+    values (#{DOCID},#{DUTYDATE});
+  </insert>
 
 </mapper>
