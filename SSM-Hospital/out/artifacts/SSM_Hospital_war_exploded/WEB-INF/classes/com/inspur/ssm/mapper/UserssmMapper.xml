@@ -38,27 +38,13 @@
   </select> 
   
 
-  <!--  <select id="getUserList"  resultType="java.util.List" resultMap="BaseResultMap" parameterType="java.util.HashMap">
+  <select id="getUserList2"  resultType="java.util.List" resultMap="BaseResultMap" parameterType="java.util.HashMap">
      <include refid="com.inspur.ssm.mapper.CommonMapper.pagingTop"></include>
 	     select * from USERSSM	t
 	     <where>
 			<include refid="query_user_where"></include>
 		</where>
 	 <include refid="com.inspur.ssm.mapper.CommonMapper.pagingBottom"></include>
-  </select> -->
-
-  <select id="queryUserssmByIdNameRole" resultType="com.inspur.ssm.pojo.Userssm">
-    select * from USERSSM
-    where 1=1
-    <if test="ID != '' and ID != null">
-      and id = #{ID}
-    </if>
-    <if test="USERNAME != ''  and USERNAME != null">
-      and username like '%${USERNAME}%'
-    </if>
-    <if test="ROLE != '' and ROLE != null">
-      and role = '${ROLE}'
-    </if>
   </select>
   
   <select id="findUser" resultType="com.inspur.ssm.pojo.Userssm" parameterType="com.inspur.ssm.pojo.Userssm" >
@@ -265,4 +251,18 @@
     select rolename from userrolelist where roleid = #{role}
   </select>
 
+<!--List<Userssm> queryUserssmByIdNameRole(@Param("ID") String id,@Param("USERNAME") String username,@Param("ROLE") String role);-->
+  <select id="queryUserssmByIdNameRole" resultType="com.inspur.ssm.pojo.Userssm">
+    select * from USERSSM
+    where 1=1
+    <if test="ID != '' and ID != null">
+      and id = #{ID}
+    </if>
+    <if test="USERNAME != ''  and USERNAME != null">
+      and username like '%${USERNAME}%'
+    </if>
+    <if test="ROLE != '' and ROLE != null">
+      and role = '${ROLE}'
+    </if>
+  </select>
 </mapper>

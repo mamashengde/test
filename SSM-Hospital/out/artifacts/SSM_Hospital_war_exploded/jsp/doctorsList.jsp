@@ -45,27 +45,29 @@
   <div id="widget table-widget">
     <div class="pageTitle">医生管理</div>
     <div class="querybody">
+      <form name="queryForm" action="${pageContext.request.contextPath}/doctors/queryDoctor.action" method="post">
       <ul class="seachform">
-        <li><label>医生ID</label><input name="" type="text" class="scinput" /></li>
-        <li><label>医生名称</label><input name="" type="text" class="scinput" /></li>
+        <li><label>医生ID</label><input id="docid" name="docid" type="text" class="scinput" /></li>
+        <li><label>医生名称</label><input id="name" name="name" type="text" class="scinput" /></li>
         <li><label>科室</label>
-          <select style="width:150px;height:32px;">
-            <option value="0">请选择</option>
+          <select id="departid" name="departid" style="width:150px;height:32px;">
+            <option value="">请选择</option>
             <option value="1">外科</option>
             <option value="2">内科</option>
             <option value="3">神经科</option>
             <option value="4">心脏科</option>
           </select>
         </li>
-        <li><label>&nbsp;</label><input name="" type="submit" class="scbtn" value="查询"/></li>
+        <li><label>&nbsp;</label><input type="submit" class="scbtn" value="查询"/></li>
       </ul>
+      </form>
     </div>
     <div class="pageColumn">
       <div class="pageButton"><a href="${ctx}/jsp/doctorsAdd.jsp"><img src="../images/t01.png" title="新增"/></a><span>医生列表</span></div>
       <table>
         <thead>
         <th width="">医生ID</th>
-        <th width="">医生名</th>
+        <th width="">用户名</th>
         <th width="">密码</th>
         <th width="">真实姓名</th>
         <th width="">所属科室</th>
@@ -82,17 +84,17 @@
             <td>${doctors.docid}</td>
             <td>${doctors.name}</td>
             <td>${doctors.password}</td>
-            <!--<td>${doctors.role eq 01 ? "管理员":userssm.role eq 02 ? "大堂服务员":
-            userssm.role eq 03 ? "药剂师": userssm.role eq 04 ? "医生": userssm.role eq 05 ? "会员":"未知"}</td>-->
+            <%--<td>${doctors.role eq 01 ? "管理员":userssm.role eq 02 ? "大堂服务员":
+            userssm.role eq 03 ? "药剂师": userssm.role eq 04 ? "医生": userssm.role eq 05 ? "会员":"未知"}</td>--%>
             <td>${doctors.realname}</td>
-            <td>${doctors.departid}</td>
-            <td>${doctors.positional}</td>
+            <td>${doctors.departid eq 1 ? "外科":doctors.departid eq 2 ? "内科": doctors.departid eq 3 ? "神经科": doctors.departid eq 4 ? "心脏科":"未知"}</td>
+            <td>${doctors.positional eq 1 ? "技师":doctors.positional eq 2 ? "主任医师": doctors.positional eq 3 ? "专家": "未知"}</td>
             <td>${doctors.tel}</td>
             <td>${doctors.age}</td>
             <td>${doctors.sex}</td>
             <td>${doctors.address}</td>
-            <td><a href="${pageContext.request.contextPath}/user/toUpdateUser?id=${userssm.id}"><img src="${ctx}/images/icon/edit.png" width="16" height="16" /></a>
-              <a href="${pageContext.request.contextPath}/user/deleteUser?id=${userssm.id}"><img src="${ctx}/images/icon/del.png" width="16" height="16" /></a></td>
+            <td><a href="${pageContext.request.contextPath}/doctors/toUpdateDoctors?docid=${doctors.docid}"><img src="${ctx}/images/icon/edit.png" width="16" height="16" /></a>
+              <a href="${pageContext.request.contextPath}/doctors/deleteDoctors?docid=${doctors.docid}"><img src="${ctx}/images/icon/del.png" width="16" height="16" /></a></td>
           </tr>
         </c:forEach>
         </tbody>

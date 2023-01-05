@@ -113,7 +113,7 @@
                 </ul>
                 <ul>
                     <li><span>(1-10/38)</span></li>
-                    <li><span>显示条数&nbsp;:&nbsp;</span></li>
+                    <li><span>显示条数&nbsp;:&nbsp;5</span></li>
                 </ul>
                 <ul>
                     <li class="active"><a href="#">10</a></li>

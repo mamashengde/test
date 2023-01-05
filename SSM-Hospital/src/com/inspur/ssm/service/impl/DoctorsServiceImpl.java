@@ -21,6 +21,26 @@ public class DoctorsServiceImpl implements DoctorsService {
 
     @Override
     public int addDoctors(Doctors doctors){
-        return  doctorsMapper.insert(doctors);
+        return  doctorsMapper.addDoctors(doctors);
+    }
+
+    @Override
+    public int deleteDoctors(int docid){
+        return doctorsMapper.deleteDoctors(docid);
+    }
+
+    @Override
+    public Doctors getDoctorsById(int docid){
+        return doctorsMapper.getDoctorsById(docid);
+    }
+
+    @Override
+    public int updateDoctors(Doctors doctors){
+        return doctorsMapper.updateDoctors(doctors);
+    }
+
+    @Override
+    public List<Doctors> qureyDoctor(String docid, String name, String departid) {
+        return doctorsMapper.qureyDoctor(docid,name,departid);
     }
 }

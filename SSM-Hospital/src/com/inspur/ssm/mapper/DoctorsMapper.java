@@ -2,16 +2,18 @@ package com.inspur.ssm.mapper;
 
 import com.inspur.ssm.pojo.Doctors;
 
+import org.apache.ibatis.annotations.Param;
+
 import java.util.List;
 
 public interface DoctorsMapper {
-    int deleteByPrimaryKey(String docid);
+    int deleteByPrimaryKey(int docid);
 
     int insert(Doctors record);
 
     int insertSelective(Doctors record);
 
-    Doctors selectByPrimaryKey(String docid);
+    Doctors selectByPrimaryKey(int docid);
 
     int updateByPrimaryKeySelective(Doctors record);
 
@@ -22,4 +24,12 @@ public interface DoctorsMapper {
     List<Doctors> getDoctorsList();
 
     int addDoctors(Doctors doctors);
+
+    int deleteDoctors(@Param("docid") int docid);
+
+    Doctors getDoctorsById(@Param("docid") int docid);
+
+    int updateDoctors(Doctors doctors);
+
+    List<Doctors> qureyDoctor(@Param("DOCID")String docid,@Param("NAME")String name,@Param("DEPARTID")String departid);
 }

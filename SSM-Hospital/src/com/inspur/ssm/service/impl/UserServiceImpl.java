@@ -20,10 +20,11 @@ public class UserServiceImpl implements UserService{
 		return userssmMapper.getCounts(params);
 	}
 
-	@Override
-	/*public List<Userssm> getUserList(Map<String, Object> params) {
-		return userssmMapper.getUserList(params);
+	/*@Override
+	public List<Userssm> getUserList2(Map<String, Object> params) {
+		return userssmMapper.getUserList2(params);
 	}*/
+
 	public List<Userssm> getUserList() {
 		return userssmMapper.getUserList();
 	}

@@ -2,12 +2,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- page模型，里面存有分页所需要的信息 -->
 <c:set var="page" value="${sessionScope.page}" />
+
 <!-- 项目路径 -->
 <c:set var="path" value="${pageContext.request.contextPath}" />
+
 <!-- 主体页面传过来的url -->
 <c:set var="url" value="${param.url}" />
+
 <!-- 可以带页面参数 -->
 <c:set var="urlParams" value="${param.urlParams}" />
+
 <!-- 项目路径+本次访问的控制器路径 -->
 <c:set var="pathurl" value="${path}/${url}" />
 

@@ -33,8 +33,6 @@
 				<option value="01">管理员</option>
 				<option value="02">服务台员工</option>
 				<option value="03">药剂师</option>
-				<option value="04">医生</option>
-				<option value="05">会员</option>
 			</select>
 	    </li>
 	    <li><label>&nbsp;</label><input type="submit" class="scbtn" value="查询" /></li>
@@ -70,11 +68,31 @@
 			</c:forEach>
         </tbody>
       </table>
-      <jsp:include page="common/includefoot.jsp">
-		  <jsp:param name="url" value="/user/queryUserList.action" />
-	  </jsp:include>
     </div>
   </div><!-- #widget -->
+	<div id="pagination" style="align:right;margin-top:-10px;">
+		<div id='project_pagination' class="pagination pagination-centered">
+			<div class="pagination">
+				<ul>
+					<li class="disabled"><a href="#">«</a></li>
+					<li class="active"><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">»</a></li>
+				</ul>
+				<ul>
+					<li><span>(${page.beginIndex}-${page.endinIndex}/${page.totalCount})</span></li>
+					<li><span>显示条数&nbsp;:&nbsp;</span></li>
+				</ul>
+				<ul>
+					<li class="active"><a href="#">10</a></li>
+					<li class=""><a href="#">30</a></li>
+					<li class=""><a href="#">50</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
 </div>
 </body>
 </html>

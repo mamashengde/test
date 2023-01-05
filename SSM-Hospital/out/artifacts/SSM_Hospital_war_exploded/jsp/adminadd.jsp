@@ -61,11 +61,11 @@
                                 <option value="01">管理员</option>
                                 <option value="02">服务台员工</option>
                                 <option value="03">药剂师</option>
-                                <option value="04">医生</option>
-                                <option value="05">会员</option>
+                                <!--<option value="04">医生</option>
+                                <option value="05">会员</option>-->
                             </select>
                         </td>
-                        <td width="20%" align="right">所属科室</td>
+                        <!--<td width="20%" align="right">所属科室</td>
                         <td width="20%">
                             <select id="depart" name="depart" >
                                 <option value="">-请选择-</option>
@@ -74,10 +74,10 @@
                                 <option value="03">神经科</option>
                                 <option value="04">心脏科</option>
                             </select>
-                        </td>
+                        </td>-->
                     </tr>
                     <tr>
-                        <td width="20%" align="right">职称</td>
+                       <!-- <td width="20%" align="right">职称</td>
                         <td width="20%">
                             <select id="positional" name="positional" >
                                 <option value="">-请选择-</option>
@@ -85,7 +85,7 @@
                                 <option value="02">主任医师</option>
                                 <option value="03">专家</option>
                             </select>
-                        </td>
+                        </td>-->
                         <td width="10%" align="right">联系电话</td>
                         <td width="50%"><input type="text" id="tel" name="tel" class="form-control"  required/></td>
                     </tr>

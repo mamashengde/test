@@ -172,4 +172,50 @@
       CREATEDATE = #{createdate,jdbcType=DATE}
     where MEMBERID = #{memberid,jdbcType=VARCHAR}
   </update>
+
+
+
+  <!--List<Members> getMembersList();-->
+  <select id="getMembersList" resultType="com.inspur.ssm.pojo.Members">
+    select * from members
+  </select>
+
+  <!--int addMembers(Members members);-->
+  <insert id="addMembers" parameterType="com.inspur.ssm.pojo.Members">
+    insert into members(name,password,role,realname,credit,sex,age,tel,balance,anaphylaxis,createdate)
+    values (#{name},#{password},'05',#{realname},#{credit},#{sex},#{age},#{tel},0,#{anaphylaxis},now())
+  </insert>
+
+  <!--int deleteMembers(@Param("memberid") int memberid);-->
+  <delete id="deleteMembers" parameterType="int">
+    delete from members where memberid = #{memberid}
+  </delete>
+
+  <!--Members getMembersById(@Param("memberid") int memberid);-->
+  <select id="getMembersById" resultType="com.inspur.ssm.pojo.Members">
+    select * from members where memberid = #{memberid}
+  </select>
+
+  <!--int updateMembers(Members members);-->
+  <update id="updateMembers" parameterType="com.inspur.ssm.pojo.Members">
+    update MEMBERS
+    set NAME = #{name},
+        PASSWORD = #{password},
+        ROLE = '05',
+        REALNAME = #{realname},
+        CREDIT = #{credit},
+        SEX = #{sex},
+        AGE = #{age},
+        TEL = #{tel},
+        ANAPHYLAXIS = #{anaphylaxis},
+        CREATEDATE = now()
+    where MEMBERID = #{memberid}
+  </update>
+
+  <!--int memberBalanceAddById(@Param("memberid")int memberid,@Param("totalBalance") int totalBalance);-->
+  <update id="memberBalanceAddById" parameterType="com.inspur.ssm.pojo.Members">
+    update members
+    set balance=${totalBalance}
+    where memberid = #{memberid}
+  </update>
 </mapper>
