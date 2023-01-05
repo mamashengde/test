@@ -62,7 +62,7 @@ $(function(){
            </c:if>
            <c:if test="${user.role=='02'}"><!-- 服务台员工：会员管理、挂号、结算 -->
            	<ul> 
-               <li><a href="${ctx}/html/memberlist.html" target="right">会员管理</a></li>
+               <li><a href="${ctx}/members/getMembersList" target="right">会员管理</a></li>
                <li><a href="${ctx}/html/ghlist.html" target="right">挂号管理</a></li>
                <li><a href="${ctx}/settle/allSettle" target="right">费用结算</a></li>
             </ul>
