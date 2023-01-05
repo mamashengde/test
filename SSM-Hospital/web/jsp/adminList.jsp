@@ -33,8 +33,6 @@
 				<option value="01">管理员</option>
 				<option value="02">服务台员工</option>
 				<option value="03">药剂师</option>
-				<option value="04">医生</option>
-				<option value="05">会员</option>
 			</select>
 	    </li>
 	    <li><label>&nbsp;</label><input type="submit" class="scbtn" value="查询" /></li>
