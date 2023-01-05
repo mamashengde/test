@@ -52,7 +52,7 @@ $(function(){
                <li><a href="${ctx}/drugs/getDrugsList" target="right">药品信息管理</a></li>
                <li><a href="${ctx}/doctors/getDoctorsList" target="right">医生管理</a></li>
                <li><a href="${ctx}/html/kslist.html" target="right">科室管理</a></li>
-               <li><a href="${ctx}/html/memberlist.html" target="right">会员管理</a></li>
+               <li><a href="${ctx}/members/getMembersList" target="right">会员管理</a></li>
                <li><a href="${ctx}/html/ghlist.html" target="right">挂号管理</a></li>
                <li><a href="${ctx}/doctorduty/allDoctorduty" target="right">医生值班管理</a></li>
                <li><a href="${ctx}/html/yzlist.html" target="right">医生诊断管理</a></li>

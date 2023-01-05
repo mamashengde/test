@@ -3,8 +3,10 @@ package com.inspur.ssm.service;
 import com.inspur.ssm.pojo.Drugs;
 import org.apache.ibatis.annotations.Param;
 
+import javax.annotation.Resource;
 import java.util.List;
 
+@Resource
 public interface DrugsService {
 
     public List<Drugs> getDrugsList();

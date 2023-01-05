@@ -67,7 +67,7 @@
       <table>
         <thead>
         <th width="">医生ID</th>
-        <th width="">医生名</th>
+        <th width="">用户名</th>
         <th width="">密码</th>
         <th width="">真实姓名</th>
         <th width="">所属科室</th>
